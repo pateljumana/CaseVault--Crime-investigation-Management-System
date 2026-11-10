@@ -1,0 +1,1120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CaseVault | Case Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+                <i class="bi bi-shield-lock-fill brand-icon"></i>
+
+                <div>
+                    <h4>CASE<span>VAULT</span></h4>
+                    <small>ADMIN WORKSPACE</small>
+                </div>
+            </div>
+
+            <p class="sidebar-heading">WORKSPACE</p>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin-dashboard.html">
+                    <i class="bi bi-grid-1x2"></i>
+                    Dashboard
+                </a>
+
+                <a href="admin-cases.html" class="active">
+                    <i class="bi bi-folder2-open"></i>
+                    Case Management
+                </a>
+
+                <a href="admin-evidence.html">
+                    <i class="bi bi-fingerprint"></i>
+                    Evidence & Clues
+                </a>
+
+                <a href="admin-users.html">
+                    <i class="bi bi-people"></i>
+                    People
+                </a>
+
+                <a href="admin-reports.html">
+                    <i class="bi bi-clipboard2-check"></i>
+                    Reports & Analytics
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="admin-account">
+                    <div class="admin-avatar">A</div>
+
+                    <div>
+                        <h6>Administrator</h6>
+                        <small>Admin Account</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+
+            <!-- TOPBAR -->
+            <header class="admin-topbar">
+
+                <div class="topbar-title">
+                    <h5>CaseVault Administration</h5>
+                    <small id="currentDate">Case Management</small>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <div class="admin-search">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="caseSearch"
+                            placeholder="Search cases...">
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="dropdown">
+
+                        <button class="topbar-icon" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            aria-label="Notifications">
+
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <h6 class="dropdown-header">Notifications</h6>
+                            </li>
+
+                            <li>
+                                <span class="dropdown-item">
+                                    3 reports are waiting for review.
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="dropdown-item">
+                                    2 investigations are flagged.
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Admin Status -->
+                    <div class="admin-status">
+                        <span></span>
+                        Demo Workspace
+                    </div>
+
+                    <!-- Profile -->
+                    <div class="dropdown">
+
+                        <button class="topbar-icon" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"
+                            aria-label="Admin profile">
+
+                            <i class="bi bi-person-circle"></i>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <span class="dropdown-item">
+                                    Administrator
+                                </span>
+                            </li>
+
+                            <li>
+                                <a href="admin-dashboard.html"
+                                    class="dropdown-item">
+                                    Dashboard
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- PAGE CONTENT -->
+            <section class="dashboard-content">
+
+                <!-- PAGE HEADING -->
+                <div class="page-heading">
+
+                    <div>
+                        <h1>Case Management</h1>
+
+                        <p>
+                            Organize cases and manage their investigation details.
+                        </p>
+                    </div>
+
+                    <button class="add-case-btn" id="addCaseButton">
+                        <i class="bi bi-plus-lg me-1"></i>
+                        Create New Case
+                    </button>
+
+                </div>
+
+
+                <!-- CASE SUMMARY -->
+                <div class="case-overview">
+
+                    <div class="case-overview-card">
+                        <p>DEMO CASES</p>
+                        <h3 id="totalCases">3</h3>
+                        <small>Cases in this sample list</small>
+                    </div>
+
+                    <div class="case-overview-card">
+                        <p>THEFT CASES</p>
+                        <h3 id="theftCases">2</h3>
+                        <small>Crime category</small>
+                    </div>
+
+                    <div class="case-overview-card">
+                        <p>FRAUD CASES</p>
+                        <h3 id="fraudCases">1</h3>
+                        <small>Crime category</small>
+                    </div>
+
+                    <div class="case-overview-card">
+                        <p>PUBLISHED</p>
+                        <h3 id="publishedCases">3</h3>
+                        <small>Available in the demo list</small>
+                    </div>
+
+                </div>
+
+
+                <!-- CASE MANAGEMENT LAYOUT -->
+                <div class="case-management-layout">
+
+                    <!-- LEFT: CASE LIST -->
+                    <div class="dashboard-panel case-list-panel">
+
+                        <div class="panel-heading">
+
+                            <div>
+                                <h5>Case Directory</h5>
+
+                                <p class="panel-subtitle">
+                                    Browse and manage investigation records.
+                                </p>
+                            </div>
+
+                            <span class="case-count-label" id="caseCountLabel">
+                                3 cases
+                            </span>
+
+                        </div>
+
+
+                        <!-- FILTERS -->
+                        <div class="case-toolbar">
+
+                            <div class="case-filters">
+
+                                <select class="case-filter" id="typeFilter">
+                                    <option value="all">All Categories</option>
+                                    <option value="Theft">Theft</option>
+                                    <option value="Fraud">Fraud</option>
+                                    <option value="Cyber Crime">Cyber Crime</option>
+                                    <option value="Other">Other</option>
+                                </select>
+
+                                <select class="case-filter" id="statusFilter">
+                                    <option value="all">All Statuses</option>
+                                    <option value="Published">Published</option>
+                                    <option value="Draft">Draft</option>
+                                    <option value="Archived">Archived</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CASE TABLE -->
+                        <div class="table-responsive">
+
+                            <table class="case-table">
+
+                                <thead>
+                                    <tr>
+                                        <th>CASE DETAILS</th>
+                                        <th>TYPE</th>
+                                        <th>DIFFICULTY</th>
+                                        <th>STATUS</th>
+                                        <th>ACTIONS</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="caseTableBody">
+                                    <!-- JavaScript displays cases here -->
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                        <p class="panel-subtitle mt-3 mb-0">
+                            <i class="bi bi-info-circle me-1"></i>
+                            Select the view icon to inspect a case.
+                        </p>
+
+                    </div>
+
+
+                    <!-- RIGHT: CASE DETAILS -->
+                    <div class="dashboard-panel case-details-panel">
+
+                        <div id="caseDetailsContent">
+
+                            <div class="case-details-header">
+
+                                <div>
+                                    <h5>Selected Case</h5>
+                                    <p>Case information and content overview</p>
+                                </div>
+
+                                <button class="details-edit-btn"
+                                    id="detailsEditButton">
+
+                                    <i class="bi bi-pencil me-1"></i>
+                                    Edit
+
+                                </button>
+
+                            </div>
+
+
+                            <p class="detail-case-id" id="detailCaseId">
+                                CV-001
+                            </p>
+
+                            <h3 class="detail-case-title" id="detailCaseTitle">
+                                The Midnight Apartment
+                            </h3>
+
+                            <p class="detail-case-description" id="detailCaseDescription">
+                                Investigation case information and its content.
+                            </p>
+
+
+                            <div class="detail-info-list">
+
+                                <div class="detail-info-item">
+                                    <span>Crime Type</span>
+                                    <span id="detailCaseType">Theft</span>
+                                </div>
+
+                                <div class="detail-info-item">
+                                    <span>Difficulty</span>
+                                    <span id="detailDifficulty">Hard</span>
+                                </div>
+
+                                <div class="detail-info-item">
+                                    <span>Status</span>
+                                    <span id="detailStatus">Published</span>
+                                </div>
+
+                            </div>
+
+
+                            <!-- CASE BUILDER -->
+                            <h6 class="case-builder-heading">
+                                <i class="bi bi-collection me-1"></i>
+                                Case Components
+                            </h6>
+
+                            <p class="panel-subtitle mb-3">
+                                Investigation sections included in the case design.
+                            </p>
+
+                            <div class="case-components">
+
+                                <span class="case-component">
+                                    <i class="bi bi-person"></i>
+                                    Suspects
+                                </span>
+
+                                <span class="case-component">
+                                    <i class="bi bi-chat-left-text"></i>
+                                    Witnesses
+                                </span>
+
+                                <span class="case-component">
+                                    <i class="bi bi-fingerprint"></i>
+                                    Evidence
+                                </span>
+
+                                <span class="case-component">
+                                    <i class="bi bi-clock-history"></i>
+                                    Timeline
+                                </span>
+
+                                <span class="case-component">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                    Red Herrings
+                                </span>
+
+                                <span class="case-component">
+                                    <i class="bi bi-lightbulb"></i>
+                                    Hints
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="noSelectedCase" style="display: none;">
+
+                            <h5 class="mb-2">No Case Selected</h5>
+
+                            <p class="case-detail-empty">
+                                Choose a case from the directory to view its
+                                information and case components.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="admin-footer">
+                CaseVault Admin Workspace &copy; 2026
+                <span class="mx-2">|</span>
+                Frontend Demo
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- ADD / EDIT CASE MODAL -->
+    <div class="modal fade case-modal" id="caseModal" tabindex="-1"
+        aria-labelledby="caseModalTitle" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <form id="caseForm">
+
+                    <div class="modal-header">
+
+                        <div>
+                            <h5 class="modal-title" id="caseModalTitle">
+                                Create New Case
+                            </h5>
+
+                            <p class="panel-subtitle mb-0">
+                                Enter the basic case information.
+                            </p>
+                        </div>
+
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+
+                    </div>
+
+
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="caseTitleInput" class="case-form-label">
+                                Case Title
+                            </label>
+
+                            <input type="text" id="caseTitleInput"
+                                class="case-form-control"
+                                placeholder="Enter case title" required>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="caseTypeInput" class="case-form-label">
+                                Crime Type
+                            </label>
+
+                            <select id="caseTypeInput"
+                                class="case-form-select" required>
+
+                                <option value="Theft">Theft</option>
+                                <option value="Fraud">Fraud</option>
+                                <option value="Cyber Crime">Cyber Crime</option>
+                                <option value="Other">Other</option>
+
+                            </select>
+                        </div>
+
+
+                        <div class="row g-3 mb-3">
+
+                            <div class="col-6">
+                                <label for="caseDifficultyInput"
+                                    class="case-form-label">
+                                    Difficulty
+                                </label>
+
+                                <select id="caseDifficultyInput"
+                                    class="case-form-select" required>
+
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
+
+                                </select>
+                            </div>
+
+
+                            <div class="col-6">
+                                <label for="caseStatusInput"
+                                    class="case-form-label">
+                                    Status
+                                </label>
+
+                                <select id="caseStatusInput"
+                                    class="case-form-select" required>
+
+                                    <option value="Published">Published</option>
+                                    <option value="Draft">Draft</option>
+                                    <option value="Archived">Archived</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div>
+                            <label for="caseDescriptionInput"
+                                class="case-form-label">
+                                Case Description
+                            </label>
+
+                            <textarea id="caseDescriptionInput"
+                                class="case-form-control" rows="4"
+                                placeholder="Enter a short case description..."
+                                required></textarea>
+                        </div>
+
+                    </div>
+
+
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+
+                        <button type="submit" class="case-save-btn">
+                            <i class="bi bi-check-lg me-1"></i>
+                            Save Case
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Display current date
+        document.getElementById("currentDate").textContent =
+            new Date().toLocaleDateString("en-IN", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+
+
+        // Sample case records
+        // Default sample cases
+const defaultCases = [
+
+    {
+        id: "CV-001",
+        title: "The Midnight Apartment",
+        type: "Theft",
+        difficulty: "Hard",
+        status: "Published",
+        description: "A theft investigation set in an apartment."
+    },
+
+    {
+        id: "CV-002",
+        title: "The Phantom Heist",
+        type: "Theft",
+        difficulty: "Hard",
+        status: "Published",
+        description: "A mysterious heist investigation."
+    },
+
+    {
+        id: "CV-003",
+        title: "The Missing Fortune",
+        type: "Fraud",
+        difficulty: "Medium",
+        status: "Published",
+        description: "An investigation involving a missing fortune."
+    }
+
+];
+
+
+// Load saved cases
+const savedCases = localStorage.getItem("caseVaultAdminCases");
+
+let cases = savedCases ? JSON.parse(savedCases) : defaultCases;
+
+
+// Other variables
+let selectedCaseId = cases.length > 0 ? cases[0].id : null;
+
+let editingCaseId = null;
+
+let nextCaseNumber =
+    Number(localStorage.getItem("caseVaultNextCaseNumber")) || 4;
+
+
+// Save cases
+function saveCases() {
+
+    localStorage.setItem(
+        "caseVaultAdminCases",
+        JSON.stringify(cases)
+    );
+
+    localStorage.setItem(
+        "caseVaultNextCaseNumber",
+        nextCaseNumber
+    );
+
+}
+
+
+        // Bootstrap modal
+        const caseModalElement = document.getElementById("caseModal");
+
+        const caseModal = new bootstrap.Modal(caseModalElement);
+
+
+        // Form elements
+        const caseForm = document.getElementById("caseForm");
+
+        const caseTitleInput = document.getElementById("caseTitleInput");
+        const caseTypeInput = document.getElementById("caseTypeInput");
+        const caseDifficultyInput = document.getElementById("caseDifficultyInput");
+        const caseStatusInput = document.getElementById("caseStatusInput");
+        const caseDescriptionInput = document.getElementById("caseDescriptionInput");
+
+
+        // Prevent user-entered text from being treated as HTML
+        function escapeHTML(value) {
+
+            return String(value).replace(/[&<>"']/g, function (character) {
+
+                const characters = {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#039;"
+                };
+
+                return characters[character];
+
+            });
+
+        }
+
+
+        // Get status CSS class
+        function getStatusClass(status) {
+
+            return status.toLowerCase();
+
+        }
+
+
+        // Get difficulty CSS class
+        function getDifficultyClass(difficulty) {
+
+            return "difficulty-" + difficulty.toLowerCase();
+
+        }
+
+
+        // Update summary cards
+        function updateSummary() {
+
+            document.getElementById("totalCases").textContent =
+                cases.length;
+
+            document.getElementById("theftCases").textContent =
+                cases.filter(function (item) {
+                    return item.type === "Theft";
+                }).length;
+
+            document.getElementById("fraudCases").textContent =
+                cases.filter(function (item) {
+                    return item.type === "Fraud";
+                }).length;
+
+            document.getElementById("publishedCases").textContent =
+                cases.filter(function (item) {
+                    return item.status === "Published";
+                }).length;
+
+        }
+
+
+        // Display case details
+        function showCaseDetails(caseId) {
+
+            const selectedCase = cases.find(function (item) {
+                return item.id === caseId;
+            });
+
+            const detailsContent =
+                document.getElementById("caseDetailsContent");
+
+            const emptyContent =
+                document.getElementById("noSelectedCase");
+
+            if (!selectedCase) {
+
+                detailsContent.style.display = "none";
+                emptyContent.style.display = "block";
+                return;
+
+            }
+
+            detailsContent.style.display = "block";
+            emptyContent.style.display = "none";
+
+            document.getElementById("detailCaseId").textContent =
+                selectedCase.id;
+
+            document.getElementById("detailCaseTitle").textContent =
+                selectedCase.title;
+
+            document.getElementById("detailCaseDescription").textContent =
+                selectedCase.description;
+
+            document.getElementById("detailCaseType").textContent =
+                selectedCase.type;
+
+            document.getElementById("detailDifficulty").textContent =
+                selectedCase.difficulty;
+
+            document.getElementById("detailStatus").textContent =
+                selectedCase.status;
+
+        }
+
+
+        // Display case table
+        function renderCases() {
+
+            const tableBody = document.getElementById("caseTableBody");
+
+            const searchValue =
+                document.getElementById("caseSearch").value.toLowerCase();
+
+            const selectedType =
+                document.getElementById("typeFilter").value;
+
+            const selectedStatus =
+                document.getElementById("statusFilter").value;
+
+
+            const filteredCases = cases.filter(function (item) {
+
+                const matchesSearch =
+                    item.id.toLowerCase().includes(searchValue) ||
+                    item.title.toLowerCase().includes(searchValue) ||
+                    item.type.toLowerCase().includes(searchValue);
+
+                const matchesType =
+                    selectedType === "all" || item.type === selectedType;
+
+                const matchesStatus =
+                    selectedStatus === "all" || item.status === selectedStatus;
+
+                return matchesSearch && matchesType && matchesStatus;
+
+            });
+
+
+            document.getElementById("caseCountLabel").textContent =
+                filteredCases.length + " cases";
+
+
+            if (filteredCases.length === 0) {
+
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="no-case-results">
+                            No matching cases found.
+                        </td>
+                    </tr>
+                `;
+
+            } else {
+
+                tableBody.innerHTML = filteredCases.map(function (item) {
+
+                    return `
+                        <tr class="${item.id === selectedCaseId ? "selected-case" : ""}">
+
+                            <td class="case-title-cell">
+                                <strong>${escapeHTML(item.title)}</strong>
+                                <small>${escapeHTML(item.id)}</small>
+                            </td>
+
+                            <td>
+                                <span class="case-type-label">
+                                    ${escapeHTML(item.type)}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="case-difficulty ${getDifficultyClass(item.difficulty)}">
+                                    ${escapeHTML(item.difficulty)}
+                                </span>
+                            </td>
+
+                            <td>
+                                <span class="case-status ${getStatusClass(item.status)}">
+                                    ${escapeHTML(item.status)}
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="case-actions">
+
+                                    <button type="button"
+                                        class="case-action-btn"
+                                        data-action="view"
+                                        data-id="${escapeHTML(item.id)}"
+                                        title="View Case"
+                                        aria-label="View case">
+
+                                        <i class="bi bi-eye"></i>
+
+                                    </button>
+
+                                    <button type="button"
+                                        class="case-action-btn"
+                                        data-action="edit"
+                                        data-id="${escapeHTML(item.id)}"
+                                        title="Edit Case"
+                                        aria-label="Edit case">
+
+                                        <i class="bi bi-pencil"></i>
+
+                                    </button>
+
+                                    <button type="button"
+                                        class="case-action-btn delete"
+                                        data-action="delete"
+                                        data-id="${escapeHTML(item.id)}"
+                                        title="Delete Case"
+                                        aria-label="Delete case">
+
+                                        <i class="bi bi-trash"></i>
+
+                                    </button>
+
+                                </div>
+                            </td>
+
+                        </tr>
+                    `;
+
+                }).join("");
+
+            }
+
+
+            updateSummary();
+
+            showCaseDetails(selectedCaseId);
+
+        }
+
+
+        // Open modal for a new case
+        function openAddCaseModal() {
+
+            editingCaseId = null;
+
+            caseForm.reset();
+
+            document.getElementById("caseModalTitle").textContent =
+                "Create New Case";
+
+            caseStatusInput.value = "Draft";
+
+            caseModal.show();
+
+        }
+
+
+        // Open modal for editing a case
+        function openEditCaseModal(caseId) {
+
+            const selectedCase = cases.find(function (item) {
+                return item.id === caseId;
+            });
+
+            if (!selectedCase) {
+                return;
+            }
+
+            editingCaseId = caseId;
+
+            caseTitleInput.value = selectedCase.title;
+            caseTypeInput.value = selectedCase.type;
+            caseDifficultyInput.value = selectedCase.difficulty;
+            caseStatusInput.value = selectedCase.status;
+            caseDescriptionInput.value = selectedCase.description;
+
+            document.getElementById("caseModalTitle").textContent =
+                "Edit Case Details";
+
+            caseModal.show();
+
+        }
+
+
+        // Create or update a case
+        caseForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const caseData = {
+
+                title: caseTitleInput.value.trim(),
+                type: caseTypeInput.value,
+                difficulty: caseDifficultyInput.value,
+                status: caseStatusInput.value,
+                description: caseDescriptionInput.value.trim()
+
+            };
+
+
+            if (editingCaseId) {
+
+                const caseIndex = cases.findIndex(function (item) {
+                    return item.id === editingCaseId;
+                });
+
+                if (caseIndex !== -1) {
+
+                    cases[caseIndex] = {
+                        ...cases[caseIndex],
+                        ...caseData
+                    };
+
+                }
+
+                selectedCaseId = editingCaseId;
+
+            } else {
+
+                const newId = "CV-" + String(nextCaseNumber).padStart(3, "0");
+
+                nextCaseNumber++;
+
+                cases.push({
+                    id: newId,
+                    ...caseData
+                });
+
+                selectedCaseId = newId;
+
+            }
+
+            saveCases();
+
+            caseModal.hide();
+
+            renderCases();
+
+        });
+
+
+        // Table actions: view, edit and delete
+        document.getElementById("caseTableBody").addEventListener("click", function (event) {
+
+            const button = event.target.closest("button[data-action]");
+
+            if (!button) {
+                return;
+            }
+
+            const action = button.dataset.action;
+            const caseId = button.dataset.id;
+
+
+            if (action === "view") {
+
+                selectedCaseId = caseId;
+
+                renderCases();
+
+            }
+
+
+            if (action === "edit") {
+
+                openEditCaseModal(caseId);
+
+            }
+
+
+            if (action === "delete") {
+
+                const confirmDelete = confirm(
+                    "Are you sure you want to delete this sample case?"
+                );
+
+                if (!confirmDelete) {
+                    return;
+                }
+
+                cases = cases.filter(function (item) {
+                    return item.id !== caseId;
+                });
+
+                if (selectedCaseId === caseId) {
+
+                    selectedCaseId = cases.length > 0
+                        ? cases[0].id
+                        : null;
+
+                }
+
+                saveCases();
+
+                renderCases();
+
+            }
+
+        });
+
+
+        // Add case button
+        document.getElementById("addCaseButton").addEventListener("click", function () {
+
+            openAddCaseModal();
+
+        });
+
+
+        // Edit button in the details panel
+        document.getElementById("detailsEditButton").addEventListener("click", function () {
+
+            if (selectedCaseId) {
+                openEditCaseModal(selectedCaseId);
+            }
+
+        });
+
+
+        // Search
+        document.getElementById("caseSearch").addEventListener("input", function () {
+
+            renderCases();
+
+        });
+
+
+        // Filters
+        document.getElementById("typeFilter").addEventListener("change", function () {
+
+            renderCases();
+
+        });
+
+
+        document.getElementById("statusFilter").addEventListener("change", function () {
+
+            renderCases();
+
+        });
+
+
+        // Initial page display
+        renderCases();
+
+    </script>
+
+</body>
+
+</html>

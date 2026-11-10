@@ -1,0 +1,1041 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CaseVault | Clue & Suspect Analysis</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <!-- CaseVault CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="home.html">
+            <i class="bi bi-shield-lock-fill"></i>
+            CaseVault
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent"
+                aria-controls="navbarContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html#cases">Explore Cases</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="investigationNav" href="investigation.html">
+                        Investigation
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="clue.html">
+                        Clue Analysis
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!-- MAIN CONTENT -->
+<main class="container py-5 clue-page">
+
+    <!-- CASE HERO -->
+    <section class="clue-top clue-hero mb-4">
+
+        <div class="clue-hero-content">
+
+            <span class="badge bg-danger mb-3">
+                <i class="bi bi-search me-1"></i>
+                CLUE & SUSPECT ANALYSIS
+            </span>
+
+            <p class="clue-case-number mb-2" id="caseNumber">CASE CV-001</p>
+
+            <h1 class="fw-bold" id="caseTitle">
+                The Midnight Apartment
+            </h1>
+
+            <p class="clue-hero-description">
+                Examine each piece of evidence, connect important details,
+                and identify which suspect deserves closer attention.
+            </p>
+
+            <div class="clue-hero-facts">
+
+                <span>
+                    <i class="bi bi-fingerprint"></i>
+                    <strong id="heroEvidenceCount">3</strong>
+                    Evidence records
+                </span>
+
+                <span>
+                    <i class="bi bi-people"></i>
+                    <strong id="heroSuspectCount">3</strong>
+                    Suspects
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CASE FILE VISUAL -->
+        <div class="clue-hero-visual" aria-label="Case investigation file">
+
+            <div class="clue-dossier">
+
+                <div class="clue-dossier-top">
+                    <span>CASE FILE</span>
+                    <i class="bi bi-shield-lock"></i>
+                </div>
+
+                <div class="clue-dossier-symbol">
+                    <i class="bi bi-fingerprint"></i>
+                </div>
+
+                <div class="clue-dossier-title">
+                    <small>INVESTIGATION RECORD</small>
+                    <h3>Evidence Analysis</h3>
+                </div>
+
+                <div class="clue-dossier-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="clue-dossier-footer">
+                    <i class="bi bi-file-earmark-check"></i>
+                    Review every detail
+                </div>
+
+            </div>
+
+            <span class="clue-dossier-stamp">UNDER REVIEW</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVESTIGATION PROGRESS -->
+    <section class="clue-progress-card mb-4">
+
+        <div class="clue-progress-top">
+
+            <div>
+                <small class="clue-section-label">YOUR INVESTIGATION</small>
+                <h5 id="clueCounter" class="mb-0">Clue 1 of 3</h5>
+            </div>
+
+            <div class="text-end">
+                <small class="clue-section-label">ANALYSIS STATUS</small>
+                <h5 id="analysisStatus" class="mb-0">Not analyzed</h5>
+            </div>
+
+        </div>
+
+        <div class="progress mt-3">
+            <div class="progress-bar bg-danger"
+                 id="clueProgressBar"
+                 style="width: 33%">
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- EVIDENCE -->
+    <section class="clue-panel clue-evidence-panel mb-4">
+
+        <div class="clue-panel-heading mb-3">
+
+            <div>
+                <small class="clue-section-label">COLLECTED EVIDENCE</small>
+                <h3 class="fw-bold mb-0" id="evidenceTitle">
+                    Evidence Title
+                </h3>
+            </div>
+
+            <span class="badge bg-secondary" id="evidenceType">
+                Evidence
+            </span>
+
+        </div>
+
+
+        <!-- EVIDENCE VISUAL -->
+        <div class="evidence-visual mb-4">
+
+            <div class="evidence-icon-area">
+                <i class="bi bi-file-earmark-text display-3"
+                   id="evidenceIcon"></i>
+                <span>CASE EVIDENCE</span>
+            </div>
+
+            <div class="evidence-visual-details">
+
+                <small>COLLECTED FROM</small>
+
+                <h5 id="evidenceVisualTitle">
+                    Evidence File
+                </h5>
+
+                <p class="mb-0">
+                    <i class="bi bi-geo-alt me-1"></i>
+                    <span id="evidenceLocation">Evidence location</span>
+                </p>
+
+                <div class="evidence-visual-note">
+                    <i class="bi bi-shield-check me-1"></i>
+                    Evidence record available for inspection
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVIDENCE RECORD -->
+        <div class="evidence-record">
+
+            <h5>
+                <i class="bi bi-file-text me-2"></i>
+                Evidence Record
+            </h5>
+
+            <p id="evidenceDescription" class="mb-0"></p>
+
+        </div>
+
+
+        <!-- INITIAL OBSERVATION -->
+        <div class="observation-card mt-3">
+
+            <h6>
+                <i class="bi bi-eye me-2"></i>
+                Initial Observation
+            </h6>
+
+            <p id="initialObservation" class="mb-0"></p>
+
+        </div>
+
+
+        <button class="btn btn-outline-danger mt-3"
+                id="revealButton"
+                onclick="revealObservation()">
+
+            <i class="bi bi-search"></i>
+            Reveal Investigator's Observation
+
+        </button>
+
+
+        <!-- DETAILED OBSERVATION -->
+        <div id="observationBox" class="observation-card detailed-observation mt-3" hidden>
+
+            <h6>
+                <i class="bi bi-lightbulb me-2"></i>
+                Investigator's Observation
+            </h6>
+
+            <p id="detailedObservation" class="mb-0"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUSPECT ANALYSIS -->
+    <section class="deduction-card clue-analysis-panel p-4 mb-4">
+
+        <span class="badge bg-danger mb-2">
+            <i class="bi bi-diagram-3 me-1"></i>
+            ANALYSIS WORKSPACE
+        </span>
+
+        <h3 class="fw-bold">Connect the Evidence</h3>
+
+        <p class="text-secondary">
+            Select the suspect whose actions or timeline are most relevant
+            to this evidence. Remember: suspicious evidence is not automatic proof of guilt.
+        </p>
+
+        <div class="analysis-question-box mt-4">
+
+            <small class="clue-section-label">YOUR TASK</small>
+
+            <h5 id="analysisQuestion" class="mt-2 mb-2">
+                Which suspect should be investigated further?
+            </h5>
+
+            <p id="analysisHint" class="text-secondary mb-0"></p>
+
+        </div>
+
+        <div id="suspectOptions" class="mt-3"></div>
+
+        <button class="btn btn-danger mt-3" onclick="submitAnalysis()">
+            <i class="bi bi-check-circle me-1"></i>
+            Submit Analysis
+        </button>
+
+
+        <!-- ANALYSIS FEEDBACK -->
+        <div id="analysisFeedback" class="analysis-feedback mt-4" hidden>
+
+            <h5 id="feedbackHeading"></h5>
+
+            <p id="feedbackMessage"></p>
+
+            <hr>
+
+            <h6>
+                <i class="bi bi-journal-check me-1"></i>
+                Evidence Interpretation
+            </h6>
+
+            <p id="feedbackExplanation" class="mb-0"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVESTIGATOR NOTES -->
+    <section class="notebook-card clue-notebook-card p-4 mb-4">
+
+        <div class="notebook-heading">
+
+            <div>
+                <h3 class="fw-bold mb-2">
+                    <i class="bi bi-journal-text"></i>
+                    Investigator's Notebook
+                </h3>
+
+                <p class="text-secondary mb-0">
+                    Record your own theory about this clue. Notes are saved separately
+                    for each case and evidence item in this browser.
+                </p>
+            </div>
+
+            <i class="bi bi-pencil-square notebook-decoration"></i>
+
+        </div>
+
+        <textarea id="investigatorNotes"
+                  class="form-control mt-3"
+                  rows="5"
+                  placeholder="Write your observations and possible connections here..."></textarea>
+
+        <div class="d-flex align-items-center flex-wrap gap-3 mt-3">
+
+            <button class="btn btn-outline-danger" onclick="saveNotes()">
+                <i class="bi bi-save me-1"></i>
+                Save Notes
+            </button>
+
+            <span id="notesMessage" class="text-success"></span>
+
+        </div>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+    <section class="clue-navigation">
+
+        <div class="clue-navigation-row">
+
+            <a href="#" id="backToInvestigation" class="btn btn-outline-light">
+                <i class="bi bi-arrow-left me-1"></i>
+                Back to Investigation
+            </a>
+
+            <div class="clue-navigation-actions">
+
+                <button class="btn btn-outline-light"
+                        id="previousButton"
+                        onclick="changeClue(-1)">
+
+                    <i class="bi bi-chevron-left"></i>
+                    Previous
+
+                </button>
+
+                <button class="btn btn-outline-light"
+                        id="nextButton"
+                        onclick="changeClue(1)">
+
+                    Next
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+
+            <a href="#" id="solveCaseLink" class="btn btn-danger">
+                Continue to Suspect Comparison
+                <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="text-center py-4">
+    <p class="text-secondary mb-0">
+        CaseVault | Every clue brings you closer to the truth.
+    </p>
+</footer>
+
+
+<script>
+
+/* ==========================================
+   CASE DATA
+   Match these IDs and names with investigation.html
+========================================== */
+
+const caseData = {
+
+    "CV-001": {
+
+        title: "The Midnight Apartment",
+
+        suspects: [
+            { id: "daniel", name: "Daniel Carter" },
+            { id: "emily", name: "Emily Brooks" },
+            { id: "michael", name: "Michael Reed" }
+        ],
+
+        evidence: [
+
+            {
+                name: "Hallway Clock",
+                type: "Physical Evidence",
+                icon: "bi-clock-history",
+                location: "Apartment Hallway",
+
+                description:
+                    "The hallway clock was found stopped at 10:48 PM. " +
+                    "Its battery was loose.",
+
+                initial:
+                    "The displayed time may appear important, but the clock's condition must be considered.",
+
+                observation:
+                    "Because the battery was loose, the clock cannot reliably establish the exact time of the incident.",
+
+                question:
+                    "Whose timeline should investigators verify using other evidence?",
+
+                hint:
+                    "Do not rely on the clock alone. Consider the visitor records.",
+
+                answer: "emily",
+
+                explanation:
+                    "Emily Brooks was recorded entering at 10:35 PM, and no departure time was recorded. " +
+                    "Her timeline deserves further verification. The clock alone does not prove guilt."
+            },
+
+            {
+                name: "Visitor Register",
+                type: "Documentary Evidence",
+                icon: "bi-journal-text",
+                location: "Apartment Reception",
+
+                description:
+                    "The visitor register records Emily Brooks entering the building at 10:35 PM. " +
+                    "No departure time was recorded.",
+
+                initial:
+                    "An entry confirms that someone arrived, but it does not confirm how long they stayed.",
+
+                observation:
+                    "The missing departure time leaves Emily's movements after 10:35 PM uncertain.",
+
+                question:
+                    "Which suspect's presence and movements should be checked?",
+
+                hint:
+                    "Focus on the person whose arrival is recorded in this register.",
+
+                answer: "emily",
+
+                explanation:
+                    "Emily's arrival is documented, but her departure is not. Investigators should verify her movements with additional records or witness statements."
+            },
+
+            {
+                name: "Torn Meeting Note",
+                type: "Documentary Evidence",
+                icon: "bi-file-earmark-text",
+                location: "Apartment Study",
+
+                description:
+                    "A torn note refers to an 11 PM discussion involving an original folder and a revised agreement.",
+
+                initial:
+                    "The note suggests that an important discussion was expected shortly before the incident.",
+
+                observation:
+                    "The planned meeting may explain why someone wanted access to the original folder.",
+
+                question:
+                    "Whose timeline should be checked against the planned meeting?",
+
+                hint:
+                    "Compare the planned meeting with the visitor register.",
+
+                answer: "emily",
+
+                explanation:
+                    "The note provides context for the incident, but it does not identify the culprit on its own. Emily's recorded presence should be compared with the meeting details."
+            }
+
+        ]
+
+    },
+
+
+    "CV-002": {
+
+        title: "The Phantom Heist",
+
+        suspects: [
+            { id: "oliver", name: "Oliver Grant" },
+            { id: "sophia", name: "Sophia Lane" },
+            { id: "ethan", name: "Ethan Cole" }
+        ],
+
+        evidence: [
+
+            {
+                name: "Alarm Console",
+                type: "Digital Evidence",
+                icon: "bi-display",
+                location: "Security Control Room",
+
+                description:
+                    "The alarm console recorded an outage between 9:42 PM and 9:49 PM.",
+
+                initial:
+                    "The outage overlaps with the period when the display case was accessed.",
+
+                observation:
+                    "Investigators should compare the outage with maintenance activity and access records.",
+
+                question:
+                    "Whose technical access should be investigated further?",
+
+                hint:
+                    "Consider who was recorded near the network equipment.",
+
+                answer: "ethan",
+
+                explanation:
+                    "Ethan's maintenance activity makes his access relevant to the outage. The console record does not prove he caused it."
+            },
+
+            {
+                name: "Display Case",
+                type: "Physical and Digital Evidence",
+                icon: "bi-box-seam",
+                location: "Museum Exhibition Hall",
+
+                description:
+                    "The display case was electronically opened at 9:45 PM using credential TECH-02. No forced entry was found.",
+
+                initial:
+                    "The case was opened electronically instead of being physically broken.",
+
+                observation:
+                    "The credential used to open the case should be linked to an authorized user.",
+
+                question:
+                    "Which suspect's technical access should investigators verify?",
+
+                hint:
+                    "Review the suspect associated with maintenance and technical access.",
+
+                answer: "ethan",
+
+                explanation:
+                    "The electronic access record suggests that someone used a credential. Investigators must verify who controlled TECH-02 and whether it was misused."
+            },
+
+            {
+                name: "Maintenance Log",
+                type: "Documentary Evidence",
+                icon: "bi-clipboard-data",
+                location: "Museum Maintenance Office",
+
+                description:
+                    "The maintenance log records Ethan Cole checking the network cabinet at approximately 9:40 PM.",
+
+                initial:
+                    "Ethan was near the network equipment shortly before the alarm outage.",
+
+                observation:
+                    "The maintenance time is close to the alarm outage and display-case access.",
+
+                question:
+                    "Whose movements should be compared with the outage timeline?",
+
+                hint:
+                    "Compare the maintenance entry with the alarm records.",
+
+                answer: "ethan",
+
+                explanation:
+                    "Ethan's presence near the network cabinet is relevant to the timeline. Investigators should verify what he was doing and whether he had access to the alarm system."
+            }
+
+        ]
+
+    },
+
+
+    "CV-003": {
+
+        title: "The Missing Fortune",
+
+        suspects: [
+            { id: "lucas", name: "Lucas White" },
+            { id: "grace", name: "Grace Miller" },
+            { id: "noah", name: "Noah Scott" }
+        ],
+
+        evidence: [
+
+            {
+                name: "Delivery Receipt",
+                type: "Documentary Evidence",
+                icon: "bi-receipt",
+                location: "Finance Department",
+
+                description:
+                    "A delivery receipt records an arrival at 2:20 PM. The signature contains the initial G.",
+
+                initial:
+                    "The initial may match more than one person, so it should not be treated as conclusive.",
+
+                observation:
+                    "The receipt time should be compared with finance department records.",
+
+                question:
+                    "Whose timeline should investigators verify in connection with this delivery?",
+
+                hint:
+                    "Compare the initial and timing with the finance department records.",
+
+                answer: "grace",
+
+                explanation:
+                    "The initial G alone cannot identify the person. Grace's finance department activity makes her timeline relevant, but the signature should be independently verified."
+            },
+
+            {
+                name: "Office Ledger",
+                type: "Financial Evidence",
+                icon: "bi-journal-check",
+                location: "Finance Office",
+
+                description:
+                    "The ledger records an account correction at 2:27 PM using Grace's finance account.",
+
+                initial:
+                    "The correction was made shortly after the delivery receipt was recorded.",
+
+                observation:
+                    "The ledger connects the correction to Grace's account, but account access should be verified.",
+
+                question:
+                    "Whose account activity should investigators examine?",
+
+                hint:
+                    "Look at the account explicitly recorded in the ledger.",
+
+                answer: "grace",
+
+                explanation:
+                    "The ledger identifies Grace's account, not necessarily the person who physically made the correction. Investigators should verify whether someone else used her account."
+            },
+
+            {
+                name: "Key Register",
+                type: "Access Evidence",
+                icon: "bi-key",
+                location: "Finance Department Key Room",
+
+                description:
+                    "The finance cabinet key was issued to Grace at 2:18 PM. No return time was recorded.",
+
+                initial:
+                    "The register records who received the key but does not establish who used it afterward.",
+
+                observation:
+                    "The missing return time leaves uncertainty about access to the finance cabinet.",
+
+                question:
+                    "Whose access should investigators verify first?",
+
+                hint:
+                    "Start with the person recorded as receiving the key.",
+
+                answer: "grace",
+
+                explanation:
+                    "Grace is recorded as receiving the key. Investigators should verify whether she retained it or whether someone else obtained access."
+            }
+
+        ]
+
+    }
+
+};
+
+
+/* ==========================================
+   GET CASE AND EVIDENCE FROM URL
+========================================== */
+
+const urlParams = new URLSearchParams(window.location.search);
+
+let caseId = urlParams.get("case") || "CV-001";
+
+if (!caseData[caseId]) {
+    caseId = "CV-001";
+}
+
+const selectedCase = caseData[caseId];
+
+let clueIndex = parseInt(urlParams.get("evidence"), 10);
+
+if (Number.isNaN(clueIndex) || clueIndex < 0 ||
+    clueIndex >= selectedCase.evidence.length) {
+
+    clueIndex = 0;
+
+}
+
+
+/* ==========================================
+   NAVIGATION LINKS
+========================================== */
+
+document.getElementById("investigationNav").href =
+    `investigation.html?case=${caseId}`;
+
+document.getElementById("backToInvestigation").href =
+    `investigation.html?case=${caseId}`;
+
+document.getElementById("solveCaseLink").href =
+    `solve.html?case=${caseId}`;
+
+
+/* ==========================================
+   DISPLAY CURRENT CLUE
+========================================== */
+
+function loadClue() {
+
+    const clue = selectedCase.evidence[clueIndex];
+
+    document.getElementById("caseNumber").textContent =
+        `CASE ${caseId}`;
+
+    document.getElementById("caseTitle").textContent =
+        selectedCase.title;
+
+    document.getElementById("heroEvidenceCount").textContent =
+        selectedCase.evidence.length;
+
+    document.getElementById("heroSuspectCount").textContent =
+        selectedCase.suspects.length;
+
+    document.getElementById("clueCounter").textContent =
+        `Clue ${clueIndex + 1} of ${selectedCase.evidence.length}`;
+
+    document.getElementById("clueProgressBar").style.width =
+        `${((clueIndex + 1) / selectedCase.evidence.length) * 100}%`;
+
+    document.getElementById("evidenceTitle").textContent =
+        clue.name;
+
+    document.getElementById("evidenceVisualTitle").textContent =
+        clue.name;
+
+    document.getElementById("evidenceType").textContent =
+        clue.type;
+
+    document.getElementById("evidenceIcon").className =
+        `bi ${clue.icon} display-3`;
+
+    document.getElementById("evidenceLocation").textContent =
+        clue.location;
+
+    document.getElementById("evidenceDescription").textContent =
+        clue.description;
+
+    document.getElementById("initialObservation").textContent =
+        clue.initial;
+
+    document.getElementById("detailedObservation").textContent =
+        clue.observation;
+
+    document.getElementById("analysisQuestion").textContent =
+        clue.question;
+
+    document.getElementById("analysisHint").textContent =
+        clue.hint;
+
+    document.getElementById("observationBox").hidden = true;
+
+    document.getElementById("revealButton").disabled = false;
+
+    document.getElementById("revealButton").innerHTML =
+        '<i class="bi bi-search"></i> Reveal Investigator\'s Observation';
+
+    document.getElementById("analysisFeedback").hidden = true;
+
+    document.getElementById("analysisStatus").textContent =
+        "Not analyzed";
+
+    document.getElementById("previousButton").disabled =
+        clueIndex === 0;
+
+    document.getElementById("nextButton").disabled =
+        clueIndex === selectedCase.evidence.length - 1;
+
+    renderSuspects();
+
+    loadNotes();
+
+}
+
+
+/* ==========================================
+   REVEAL OBSERVATION
+========================================== */
+
+function revealObservation() {
+
+    document.getElementById("observationBox").hidden = false;
+
+    document.getElementById("revealButton").disabled = true;
+
+    document.getElementById("revealButton").innerHTML =
+        '<i class="bi bi-check-circle"></i> Observation Revealed';
+
+}
+
+
+/* ==========================================
+   DISPLAY SUSPECTS
+========================================== */
+
+function renderSuspects() {
+
+    const container = document.getElementById("suspectOptions");
+
+    container.innerHTML = "";
+
+    selectedCase.suspects.forEach(function(suspect) {
+
+        const label = document.createElement("label");
+
+        label.className =
+            "deduction-option d-block border rounded p-3 mb-2";
+
+        label.innerHTML = `
+            <input type="radio"
+                   class="form-check-input me-2"
+                   name="suspect"
+                   value="${suspect.id}">
+
+            <strong>${suspect.name}</strong>
+        `;
+
+        container.appendChild(label);
+
+    });
+
+}
+
+
+/* ==========================================
+   SUBMIT ANALYSIS
+========================================== */
+
+function submitAnalysis() {
+
+    const selected = document.querySelector(
+        'input[name="suspect"]:checked'
+    );
+
+    if (!selected) {
+
+        alert("Please select a suspect first.");
+
+        return;
+
+    }
+
+    const clue = selectedCase.evidence[clueIndex];
+
+    const feedback = document.getElementById("analysisFeedback");
+
+    feedback.hidden = false;
+
+    document.getElementById("analysisStatus").textContent =
+        "Analyzed";
+
+    if (selected.value === clue.answer) {
+
+        document.getElementById("feedbackHeading").textContent =
+            "Relevant Connection Found";
+
+        document.getElementById("feedbackHeading").className =
+            "text-success";
+
+        document.getElementById("feedbackMessage").textContent =
+            "Your selection matches the suspect most relevant to this evidence. " +
+            "Continue checking other clues before reaching a final conclusion.";
+
+    } else {
+
+        document.getElementById("feedbackHeading").textContent =
+            "Review Your Deduction";
+
+        document.getElementById("feedbackHeading").className =
+            "text-warning";
+
+        document.getElementById("feedbackMessage").textContent =
+            "This suspect is not the strongest connection for this particular clue. " +
+            "Review the observation and consider the timeline again.";
+
+    }
+
+    document.getElementById("feedbackExplanation").textContent =
+        clue.explanation;
+
+}
+
+
+/* ==========================================
+   PREVIOUS / NEXT CLUE
+========================================== */
+
+function changeClue(direction) {
+
+    const newIndex = clueIndex + direction;
+
+    if (newIndex < 0 || newIndex >= selectedCase.evidence.length) {
+        return;
+    }
+
+    window.location.href =
+        `clue.html?case=${caseId}&evidence=${newIndex}`;
+
+}
+
+
+/* ==========================================
+   SAVE NOTES PER CASE AND CLUE
+========================================== */
+
+function getNotesKey() {
+
+    return `casevaultNotes-${caseId}-${clueIndex}`;
+
+}
+
+
+function loadNotes() {
+
+    const savedNotes =
+        localStorage.getItem(getNotesKey()) || "";
+
+    document.getElementById("investigatorNotes").value =
+        savedNotes;
+
+    document.getElementById("notesMessage").textContent = "";
+
+}
+
+
+function saveNotes() {
+
+    const notes =
+        document.getElementById("investigatorNotes").value;
+
+    localStorage.setItem(getNotesKey(), notes);
+
+    document.getElementById("notesMessage").textContent =
+        "Notes saved successfully.";
+
+}
+
+
+/* ==========================================
+   START PAGE
+========================================== */
+
+loadClue();
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

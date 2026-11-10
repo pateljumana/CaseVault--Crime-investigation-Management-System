@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CaseVault | Final Verdict</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <!-- CaseVault CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="home.html">
+            <i class="bi bi-shield-lock-fill"></i>
+            CaseVault
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent"
+                aria-controls="navbarContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html#cases">Explore Cases</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="investigationNav"
+                       href="investigation.html">
+                        Investigation
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="clueNav" href="clue.html">
+                        Clue Analysis
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- MAIN CONTENT -->
+<main class="container py-5 solve-page">
+
+    <!-- FINAL VERDICT IMAGE BANNER -->
+    <section class="verdict-image-banner mb-4">
+
+    <img id="verdictBannerImage"
+         src="midnight.png"
+         alt="The midnight appartment">
+
+</section>
+
+
+    <!-- CASE SUMMARY -->
+    <section class="clue-progress-card p-4 mb-4">
+
+        <div class="d-flex align-items-center gap-3 mb-3">
+
+            <div class="suspect-icon">
+                <i class="bi bi-file-earmark-text fs-2"></i>
+            </div>
+
+            <div>
+                <small class="text-secondary">CASE SUMMARY</small>
+                <h4 class="fw-bold mb-0">The Incident</h4>
+            </div>
+
+        </div>
+
+        <p id="caseSummary" class="mb-0"></p>
+
+    </section>
+
+
+    <!-- FINAL ACCUSATION -->
+    <section class="final-accusation-panel p-4 mb-4">
+
+        <span class="badge bg-danger mb-2">
+            DETECTIVE'S DECISION
+        </span>
+
+        <h2 class="fw-bold">
+            Submit Your Verdict
+        </h2>
+
+        <p class="text-secondary">
+            Select the suspect you believe is responsible.
+            Your accusation must be supported by evidence.
+        </p>
+
+        <form id="verdictForm">
+
+            <!-- SUSPECT SELECTION -->
+            <div class="mb-4">
+
+                <h5 class="fw-bold">
+                    <i class="bi bi-person-fill text-danger"></i>
+                    Who is the culprit?
+                </h5>
+
+                <div id="suspectOptions" class="mt-3">
+
+                    <!-- Suspect options generated using JavaScript -->
+
+                </div>
+
+            </div>
+
+
+            <hr>
+
+
+            <!-- EVIDENCE SELECTION -->
+            <div class="mb-4">
+
+                <h5 class="fw-bold">
+                    <i class="bi bi-search text-danger"></i>
+                    Which evidence supports your accusation?
+                </h5>
+
+                <p class="text-secondary">
+                    Select the strongest piece of evidence from your investigation.
+                </p>
+
+                <select id="evidenceChoice"
+                        class="form-select"
+                        required>
+
+                    <option value="">Choose supporting evidence</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- REASON -->
+            <div class="mb-4">
+
+                <h5 class="fw-bold">
+                    <i class="bi bi-pencil-square text-danger"></i>
+                    Explain your reasoning
+                </h5>
+
+                <p class="text-secondary">
+                    Briefly explain how the evidence connects your selected suspect
+                    to the crime.
+                </p>
+
+                <textarea id="verdictReason"
+                          class="form-control"
+                          rows="4"
+                          minlength="10"
+                          required
+                          placeholder="I believe this suspect is responsible because..."></textarea>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+            <button type="submit" class="btn btn-danger">
+
+                <i class="bi bi-gavel"></i>
+                Submit Final Verdict
+
+            </button>
+
+        </form>
+
+
+        <!-- RESULT -->
+        <div id="verdictResult"
+             class="mt-4 border rounded p-4"
+             hidden>
+
+            <h3 id="resultHeading"></h3>
+
+            <p id="resultMessage"></p>
+
+            <hr>
+
+            <h5>
+                <i class="bi bi-journal-check"></i>
+                Investigation Conclusion
+            </h5>
+
+            <p id="resultExplanation" class="mb-0"></p>
+
+            <div class="mt-3">
+
+                <a href="home.html#cases"
+                   class="btn btn-outline-light">
+
+                    <i class="bi bi-house"></i>
+                    Return to Cases
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+    <section class="solve-navigation">
+
+        <div class="d-flex justify-content-between flex-wrap gap-3">
+
+            <a href="#" id="backToClues"
+               class="btn btn-outline-light">
+
+                <i class="bi bi-arrow-left"></i>
+                Back to Clue Analysis
+
+            </a>
+
+            <a href="home.html#cases"
+               class="btn btn-outline-light">
+
+                <i class="bi bi-house"></i>
+                Return to Cases
+
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="text-center py-4">
+
+    <p class="text-secondary mb-0">
+        CaseVault | Every case has a truth. Can you find it?
+    </p>
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   CASE DATA
+========================================== */
+
+const cases = {
+
+    "CV-001": {
+
+        title: "The Midnight Apartment",
+
+        summary:
+            "An important original folder disappeared from an apartment during a late-night incident. The visitor register, hallway clock, and meeting note contain conflicting timeline details.",
+
+        culprit: "emily",
+
+        evidence: [
+            "Hallway Clock",
+            "Visitor Register",
+            "Torn Meeting Note"
+        ],
+
+        explanation:
+            "Emily Brooks is the intended culprit. She claimed she had left before 11 PM, but the visitor register records her arrival at 10:35 PM without a departure time. The meeting note refers to an 11 PM discussion involving the original folder. These details make her timeline suspicious. The stopped hallway clock cannot reliably establish the incident time."
+    },
+
+
+    "CV-002": {
+
+        title: "The Phantom Heist",
+
+        summary:
+            "A valuable artifact was stolen from the City Museum. The display case was electronically opened during a security outage, and the access record shows the use of technician credential TECH-02.",
+
+        culprit: "ethan",
+
+        evidence: [
+            "Alarm Console",
+            "Display Case",
+            "Maintenance Log"
+        ],
+
+        explanation:
+            "Ethan Cole is the intended culprit. He was recorded near the network cabinet shortly before the alarm outage. The display case was opened at 9:45 PM using TECH-02 during the outage. His maintenance activity and technical access connect him to the incident."
+    },
+
+
+    "CV-003": {
+
+        title: "The Missing Fortune",
+
+        summary:
+            "Money disappeared from a finance department. A delivery receipt, office ledger, and key register contain details that may connect someone to the missing funds.",
+
+        culprit: "grace",
+
+        evidence: [
+            "Delivery Receipt",
+            "Office Ledger",
+            "Key Register"
+        ],
+
+        explanation:
+            "Grace Miller is the intended culprit. Her finance account was used for an account correction at 2:27 PM. The finance cabinet key was issued to her at 2:18 PM, with no return time recorded. These details connect her account activity and access to the incident."
+    }
+
+};
+
+
+/* ==========================================
+   SUSPECT DATA
+========================================== */
+
+const suspects = {
+
+    "CV-001": [
+        { id: "daniel", name: "Daniel Carter" },
+        { id: "emily", name: "Emily Brooks" },
+        { id: "michael", name: "Michael Reed" }
+    ],
+
+    "CV-002": [
+        { id: "oliver", name: "Oliver Grant" },
+        { id: "sophia", name: "Sophia Lane" },
+        { id: "ethan", name: "Ethan Cole" }
+    ],
+
+    "CV-003": [
+        { id: "lucas", name: "Lucas White" },
+        { id: "grace", name: "Grace Miller" },
+        { id: "noah", name: "Noah Scott" }
+    ]
+
+};
+
+
+/* ==========================================
+   GET CASE FROM URL
+========================================== */
+
+const params = new URLSearchParams(window.location.search);
+
+let caseId = params.get("case") || "CV-001";
+
+if (!cases[caseId]) {
+    caseId = "CV-001";
+}
+
+const selectedCase = cases[caseId];
+
+// Images for all three cases
+const verdictBannerImages = {
+
+    "CV-001": "midnight.png",
+
+    "CV-002": "phantom.png",
+
+    "CV-003": "fortune.png"
+
+};
+
+
+// Display the correct image
+const verdictBannerImage =
+    document.getElementById("verdictBannerImage");
+
+verdictBannerImage.src = verdictBannerImages[caseId];
+
+verdictBannerImage.alt =
+    "Final Verdict - " + selectedCase.title;
+
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+document.getElementById("investigationNav").href =
+    `investigation.html?case=${caseId}`;
+
+document.getElementById("clueNav").href =
+    `clue.html?case=${caseId}`;
+
+document.getElementById("backToClues").href =
+    `clue.html?case=${caseId}&evidence=2`;
+
+
+/* ==========================================
+   DISPLAY CASE INFORMATION
+========================================== */
+
+document.getElementById("caseNumber").textContent =
+    `CASE ${caseId}`;
+
+document.getElementById("caseTitle").textContent =
+    selectedCase.title;
+
+document.getElementById("caseSummary").textContent =
+    selectedCase.summary;
+
+
+/* ==========================================
+   DISPLAY SUSPECT OPTIONS
+========================================== */
+
+function renderSuspects() {
+
+    const container =
+        document.getElementById("suspectOptions");
+
+    container.innerHTML = "";
+
+    suspects[caseId].forEach(function(suspect) {
+
+        const option = document.createElement("label");
+
+        option.className =
+            "deduction-option d-block border rounded p-3 mb-2";
+
+        option.innerHTML = `
+            <input type="radio"
+                   class="form-check-input me-2"
+                   name="suspect"
+                   value="${suspect.id}"
+                   required>
+
+            <i class="bi bi-person-badge me-2"></i>
+
+            <strong>${suspect.name}</strong>
+        `;
+
+        container.appendChild(option);
+
+    });
+
+}
+
+
+/* ==========================================
+   DISPLAY EVIDENCE OPTIONS
+========================================== */
+
+function renderEvidence() {
+
+    const select =
+        document.getElementById("evidenceChoice");
+
+    selectedCase.evidence.forEach(function(evidence) {
+
+        const option = document.createElement("option");
+
+        option.value = evidence;
+
+        option.textContent = evidence;
+
+        select.appendChild(option);
+
+    });
+
+}
+
+
+/* ==========================================
+   SUBMIT FINAL VERDICT
+========================================== */
+
+document.getElementById("verdictForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const selectedSuspect =
+            document.querySelector(
+                'input[name="suspect"]:checked'
+            );
+
+        const selectedEvidence =
+            document.getElementById("evidenceChoice").value;
+
+        const reason =
+            document.getElementById("verdictReason").value.trim();
+
+
+        if (!selectedSuspect) {
+
+            alert("Please select a suspect.");
+
+            return;
+
+        }
+
+        if (!selectedEvidence) {
+
+            alert("Please select supporting evidence.");
+
+            return;
+
+        }
+
+        if (reason.length < 10) {
+
+            alert("Please provide a more detailed explanation.");
+
+            return;
+
+        }
+
+
+        const result =
+            document.getElementById("verdictResult");
+
+        const heading =
+            document.getElementById("resultHeading");
+
+        const message =
+            document.getElementById("resultMessage");
+
+        const explanation =
+            document.getElementById("resultExplanation");
+
+
+        result.hidden = false;
+
+
+        if (selectedSuspect.value === selectedCase.culprit) {
+
+            heading.textContent = "Case Solved!";
+
+            heading.className = "text-success fw-bold";
+
+            message.textContent =
+                "Congratulations, Detective! Your final accusation identifies the correct suspect.";
+
+        } else {
+
+            heading.textContent = "Wrong Accusation";
+
+            heading.className = "text-warning fw-bold";
+
+            message.textContent =
+                "Your selected suspect does not match the case solution. Review the investigation and compare the evidence again.";
+
+        }
+
+
+        explanation.textContent =
+            selectedCase.explanation;
+
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    });
+
+
+/* ==========================================
+   START PAGE
+========================================== */
+
+renderSuspects();
+
+renderEvidence();
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

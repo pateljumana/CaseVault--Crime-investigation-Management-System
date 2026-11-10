@@ -1,0 +1,1292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CaseVault | Reports & Analytics</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+                <i class="bi bi-shield-lock-fill brand-icon"></i>
+
+                <div>
+                    <h4>CASE<span>VAULT</span></h4>
+                    <small>ADMIN WORKSPACE</small>
+                </div>
+            </div>
+
+            <p class="sidebar-heading">WORKSPACE</p>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin-dashboard.html">
+                    <i class="bi bi-grid-1x2"></i>
+                    Dashboard
+                </a>
+
+                <a href="admin-cases.html">
+                    <i class="bi bi-folder2-open"></i>
+                    Case Management
+                </a>
+
+                <a href="admin-evidence.html">
+                    <i class="bi bi-fingerprint"></i>
+                    Evidence & Clues
+                </a>
+
+                <a href="admin-users.html">
+                    <i class="bi bi-people"></i>
+                    People
+                </a>
+
+                <a href="admin-reports.html" class="active">
+                    <i class="bi bi-clipboard2-check"></i>
+                    Reports & Analytics
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="admin-account">
+                    <div class="admin-avatar">A</div>
+
+                    <div>
+                        <h6>Administrator</h6>
+                        <small>Admin Account</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+
+            <!-- TOPBAR -->
+            <header class="admin-topbar">
+
+                <div class="topbar-title">
+                    <h5>CaseVault Administration</h5>
+                    <small id="currentDate">Reports & Analytics</small>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <div class="admin-search">
+                        <i class="bi bi-search"></i>
+
+                        <input type="text" id="reportSearch"
+                            placeholder="Search reports...">
+                    </div>
+
+                    <!-- NOTIFICATIONS -->
+                    <div class="dropdown">
+
+                        <button class="topbar-icon" type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            aria-label="Notifications">
+
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <h6 class="dropdown-header">Notifications</h6>
+                            </li>
+
+                            <li>
+                                <span class="dropdown-item">
+                                    Reports awaiting review.
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="dropdown-item">
+                                    Investigation reports updated.
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="admin-status">
+                        <span></span>
+                        Demo Workspace
+                    </div>
+
+                    <!-- PROFILE -->
+                    <div class="dropdown">
+
+                        <button class="topbar-icon" type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            aria-label="Admin profile">
+
+                            <i class="bi bi-person-circle"></i>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <span class="dropdown-item">
+                                    Administrator
+                                </span>
+                            </li>
+
+                            <li>
+                                <a href="admin-dashboard.html"
+                                    class="dropdown-item">
+                                    Dashboard
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- PAGE CONTENT -->
+            <section class="dashboard-content">
+
+                <!-- PAGE HEADING -->
+                <div class="page-heading">
+
+                    <div>
+                        <h1>Reports & Analytics</h1>
+
+                        <p>
+                            Review submitted theories and examine investigation performance.
+                        </p>
+                    </div>
+
+                    <span class="demo-label">
+                        <i class="bi bi-info-circle me-1"></i>
+                        DEMO DATA
+                    </span>
+
+                </div>
+
+
+                <!-- REPORT SUMMARY -->
+                <div class="report-summary">
+
+                    <div class="report-summary-card">
+
+                        <p>TOTAL REPORTS</p>
+                        <h3 id="totalReports">4</h3>
+
+                    </div>
+
+
+                    <div class="report-summary-card">
+
+                        <p>PENDING REVIEW</p>
+                        <h3 id="pendingReports">2</h3>
+
+                    </div>
+
+
+                    <div class="report-summary-card">
+
+                        <p>APPROVED</p>
+                        <h3 id="approvedReports">1</h3>
+
+                    </div>
+
+
+                    <div class="report-summary-card">
+
+                        <p>REJECTED</p>
+                        <h3 id="rejectedReports">1</h3>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUBMITTED REPORTS -->
+                <div class="dashboard-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <h5>Submitted Theories</h5>
+
+                            <p class="panel-subtitle">
+                                Review player submissions and their investigation results.
+                            </p>
+                        </div>
+
+                        <span class="case-count-label" id="reportCount">
+                            4 reports
+                        </span>
+
+                    </div>
+
+
+                    <!-- FILTERS -->
+                    <div class="report-toolbar">
+
+                        <div class="report-filters">
+
+                            <select id="reportStatusFilter"
+                                class="report-filter">
+
+                                <option value="all">All Reports</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Reviewed">Reviewed</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REPORT TABLE -->
+                    <div class="table-responsive">
+
+                        <table class="report-table">
+
+                            <thead>
+                                <tr>
+                                    <th>REPORT ID</th>
+                                    <th>USER</th>
+                                    <th>CASE</th>
+                                    <th>EVIDENCE</th>
+                                    <th>RESULT</th>
+                                    <th>SCORE</th>
+                                    <th>STATUS</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="reportTableBody">
+                                <!-- JavaScript displays reports here -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <p class="panel-subtitle mt-3 mb-0">
+                        <i class="bi bi-info-circle me-1"></i>
+                        Select a report to inspect the submitted theory.
+                    </p>
+
+                </div>
+
+
+                <!-- REPORT DETAILS AND ADMIN REVIEW -->
+                <div class="report-review-layout">
+
+                    <!-- SELECTED REPORT -->
+                    <div class="dashboard-panel selected-report-panel">
+
+                        <div id="reportDetailsContent">
+
+                            <div class="report-panel-heading">
+
+                                <div>
+                                    <h5>Selected Report</h5>
+
+                                    <p>
+                                        Submitted investigation details
+                                    </p>
+                                </div>
+
+                                <i class="bi bi-file-earmark-text"
+                                    style="color: var(--accent-hover); font-size: 20px;"></i>
+
+                            </div>
+
+
+                            <p class="selected-report-id"
+                                id="detailReportId">
+                                R-001
+                            </p>
+
+
+                            <h6 class="mb-3" id="detailTheoryTitle">
+                                Suspect #2 — Final Theory
+                            </h6>
+
+
+                            <div class="submitted-theory">
+
+                                <h6>
+                                    <i class="bi bi-chat-quote me-1"></i>
+                                    PLAYER'S FINAL THEORY
+                                </h6>
+
+                                <p id="detailTheory">
+                                    The suspect used the spare key and planned
+                                    the theft before entering the apartment.
+                                </p>
+
+                            </div>
+
+
+                            <!-- REPORT INFORMATION -->
+                            <div class="report-information">
+
+                                <div class="report-info-item">
+                                    <span>Submitted By</span>
+                                    <span id="detailReportUser">User A</span>
+                                </div>
+
+                                <div class="report-info-item">
+                                    <span>Case ID</span>
+                                    <span id="detailReportCase">CV-001</span>
+                                </div>
+
+                                <div class="report-info-item">
+                                    <span>Time Taken</span>
+                                    <span id="detailReportTime">18 minutes</span>
+                                </div>
+
+                                <div class="report-info-item">
+                                    <span>Hints Used</span>
+                                    <span id="detailReportHints">1</span>
+                                </div>
+
+                                <div class="report-info-item">
+                                    <span>Player Score</span>
+                                    <strong id="detailReportScore">780 / 1000</strong>
+                                </div>
+
+                                <div class="report-info-item">
+                                    <span>Review Status</span>
+                                    <span id="detailReportStatus">Pending</span>
+                                </div>
+
+                            </div>
+
+
+                            <!-- EVIDENCE USED -->
+                            <h6 class="report-evidence-heading">
+                                <i class="bi bi-fingerprint me-1"></i>
+                                Evidence Used
+                            </h6>
+
+                            <div class="report-evidence-list"
+                                id="detailEvidenceList">
+                                <!-- Evidence displayed using JavaScript -->
+                            </div>
+
+                        </div>
+
+
+                        <div id="noReportSelected" style="display: none;">
+
+                            <h5>No Report Selected</h5>
+
+                            <p class="case-detail-empty">
+                                Select a submitted report from the table
+                                to view its theory and investigation details.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ADMIN REVIEW -->
+                    <div class="dashboard-panel admin-review-panel">
+
+                        <div class="report-panel-heading">
+
+                            <div>
+                                <h5>Admin Review</h5>
+
+                                <p>
+                                    Evaluate the player's investigation.
+                                </p>
+                            </div>
+
+                            <i class="bi bi-clipboard-check"
+                                style="color: var(--accent-hover); font-size: 20px;"></i>
+
+                        </div>
+
+
+                        <p class="review-instruction">
+                            Check the relevant points below and provide
+                            feedback on the submitted theory.
+                        </p>
+
+
+                        <!-- REVIEW CHECKLIST -->
+                        <div class="review-check-list">
+
+                            <label class="review-check">
+
+                                <input type="checkbox" id="correctClueCheck">
+
+                                <span>
+                                    Correct clues identified
+                                </span>
+
+                            </label>
+
+
+                            <label class="review-check">
+
+                                <input type="checkbox" id="contradictionCheck">
+
+                                <span>
+                                    Contradictions considered
+                                </span>
+
+                            </label>
+
+
+                            <label class="review-check">
+
+                                <input type="checkbox" id="missedClueCheck">
+
+                                <span>
+                                    Important clues missed
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- FEEDBACK -->
+                        <div>
+
+                            <label for="reviewFeedback"
+                                class="review-feedback-label">
+
+                                Admin Feedback
+
+                            </label>
+
+                            <textarea id="reviewFeedback"
+                                class="review-feedback"
+                                placeholder="Write feedback about the submitted theory..."></textarea>
+
+                        </div>
+
+
+                        <!-- REVIEW BUTTONS -->
+                        <div class="review-button-row">
+
+                            <button type="button"
+                                class="review-save-btn"
+                                id="saveReviewButton">
+
+                                <i class="bi bi-save me-1"></i>
+                                Save Review
+
+                            </button>
+
+
+                            <button type="button"
+                                class="review-approve-btn"
+                                id="approveReportButton">
+
+                                <i class="bi bi-check-circle me-1"></i>
+                                Approve
+
+                            </button>
+
+
+                            <button type="button"
+                                class="review-reject-btn"
+                                id="rejectReportButton">
+
+                                <i class="bi bi-x-circle me-1"></i>
+                                Reject
+
+                            </button>
+
+                        </div>
+
+
+                        <p class="review-message" id="reviewMessage"></p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CASE PERFORMANCE -->
+                <div class="dashboard-panel performance-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <h5>Case Performance</h5>
+
+                            <p class="panel-subtitle">
+                                Investigation statistics for the selected submission.
+                            </p>
+                        </div>
+
+                        <span class="panel-tag" id="performanceCaseId">
+                            CV-001
+                        </span>
+
+                    </div>
+
+
+                    <div class="performance-grid">
+
+                        <div class="performance-item">
+
+                            <p>CORRECT CLUES</p>
+
+                            <h4 id="performanceCorrectClues">4 / 6</h4>
+
+                            <small>Clues correctly identified</small>
+
+                        </div>
+
+
+                        <div class="performance-item">
+
+                            <p>CLUES USED</p>
+
+                            <h4 id="performanceCluesUsed">6</h4>
+
+                            <small>Total clues inspected</small>
+
+                        </div>
+
+
+                        <div class="performance-item">
+
+                            <p>TIME TAKEN</p>
+
+                            <h4 id="performanceTime">18 min</h4>
+
+                            <small>Investigation duration</small>
+
+                        </div>
+
+
+                        <div class="performance-item">
+
+                            <p>HINTS USED</p>
+
+                            <h4 id="performanceHints">1</h4>
+
+                            <small>Hints requested by player</small>
+
+                        </div>
+
+
+                        <div class="performance-item">
+
+                            <p>THEORY QUALITY</p>
+
+                            <h4 id="performanceQuality">Good</h4>
+
+                            <small>Sample evaluation</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="admin-footer">
+                CaseVault Admin Workspace &copy; 2026
+                <span class="mx-2">|</span>
+                Frontend Demo
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Display current date
+        document.getElementById("currentDate").textContent =
+            new Date().toLocaleDateString("en-IN", {
+                weekday: "long",
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+
+
+        // Default sample reports
+        const defaultReports = [
+
+            {
+                id: "R-001",
+                user: "User A",
+                caseId: "CV-001",
+                theoryTitle: "Suspect #2 — Final Theory",
+                theory: "The suspect used the spare key and planned the theft before entering the apartment. The CCTV and phone location records show a possible contradiction in the suspect's statement.",
+                evidence: ["CCTV Footage", "Phone Location", "Access Log"],
+                result: "Awaiting Review",
+                score: 780,
+                submitted: "Today",
+                status: "Pending",
+                timeTaken: "18 min",
+                hintsUsed: 1,
+                correctClues: 4,
+                cluesUsed: 6,
+                theoryQuality: "Good",
+                review: {
+                    correctClue: false,
+                    contradiction: false,
+                    missedClue: false,
+                    feedback: ""
+                }
+            },
+
+            {
+                id: "R-002",
+                user: "User B",
+                caseId: "CV-002",
+                theoryTitle: "The Hidden Heist",
+                theory: "The selected suspect had access to the location and used the opportunity to carry out the theft. The submitted evidence supports the proposed theory.",
+                evidence: ["Security Footage", "Entry Record", "Witness Statement", "Object Trace"],
+                result: "Correct",
+                score: 920,
+                submitted: "Yesterday",
+                status: "Approved",
+                timeTaken: "22 min",
+                hintsUsed: 0,
+                correctClues: 5,
+                cluesUsed: 6,
+                theoryQuality: "Excellent",
+                review: {
+                    correctClue: true,
+                    contradiction: true,
+                    missedClue: false,
+                    feedback: "Good use of evidence and a clear final explanation."
+                }
+            },
+
+            {
+                id: "R-003",
+                user: "User C",
+                caseId: "CV-003",
+                theoryTitle: "The Missing Fortune",
+                theory: "The player suspects that the missing fortune was moved using an inside connection. More evidence is needed to support this conclusion.",
+                evidence: ["Financial Record", "Document Copy"],
+                result: "Awaiting Review",
+                score: 650,
+                submitted: "2 Days Ago",
+                status: "Pending",
+                timeTaken: "25 min",
+                hintsUsed: 2,
+                correctClues: 3,
+                cluesUsed: 5,
+                theoryQuality: "Average",
+                review: {
+                    correctClue: false,
+                    contradiction: false,
+                    missedClue: false,
+                    feedback: ""
+                }
+            },
+
+            {
+                id: "R-004",
+                user: "User D",
+                caseId: "CV-001",
+                theoryTitle: "Alternative Suspect Theory",
+                theory: "The player selected another suspect but did not provide enough evidence to support the accusation. Some important timeline details were overlooked.",
+                evidence: ["Receipt", "Photograph"],
+                result: "Incorrect",
+                score: 480,
+                submitted: "3 Days Ago",
+                status: "Rejected",
+                timeTaken: "31 min",
+                hintsUsed: 3,
+                correctClues: 2,
+                cluesUsed: 5,
+                theoryQuality: "Needs Improvement",
+                review: {
+                    correctClue: false,
+                    contradiction: false,
+                    missedClue: true,
+                    feedback: "Please reconsider the timeline and compare the evidence before submitting."
+                }
+            }
+
+        ];
+
+
+        // Load saved reports
+        const savedReports = localStorage.getItem("caseVaultReports");
+
+        let reports = savedReports
+            ? JSON.parse(savedReports)
+            : defaultReports;
+
+
+        // Selected report
+        let selectedReportId =
+            reports.length > 0 ? reports[0].id : null;
+
+
+        // Save reports in browser storage
+        function saveReports() {
+
+            localStorage.setItem(
+                "caseVaultReports",
+                JSON.stringify(reports)
+            );
+
+        }
+
+
+        // Prevent entered text from being treated as HTML
+        function escapeHTML(value) {
+
+            return String(value).replace(/[&<>"']/g, function (character) {
+
+                const characters = {
+                    "&": "&amp;",
+                    "<": "&lt;",
+                    ">": "&gt;",
+                    '"': "&quot;",
+                    "'": "&#039;"
+                };
+
+                return characters[character];
+
+            });
+
+        }
+
+
+        // Get CSS class for report status
+        function getReportStatusClass(status) {
+
+            return status.toLowerCase();
+
+        }
+
+
+        // Get CSS class for result
+        function getResultClass(result) {
+
+            if (result === "Correct") {
+                return "correct";
+            }
+
+            if (result === "Incorrect") {
+                return "incorrect";
+            }
+
+            return "awaiting";
+
+        }
+
+
+        // Update summary cards
+        function updateReportSummary() {
+
+            document.getElementById("totalReports").textContent =
+                reports.length;
+
+            document.getElementById("pendingReports").textContent =
+                reports.filter(function (item) {
+                    return item.status === "Pending";
+                }).length;
+
+            document.getElementById("approvedReports").textContent =
+                reports.filter(function (item) {
+                    return item.status === "Approved";
+                }).length;
+
+            document.getElementById("rejectedReports").textContent =
+                reports.filter(function (item) {
+                    return item.status === "Rejected";
+                }).length;
+
+        }
+
+
+        // Display selected report details
+        function showReportDetails(reportId) {
+
+            const selectedReport = reports.find(function (item) {
+                return item.id === reportId;
+            });
+
+            const detailsContent =
+                document.getElementById("reportDetailsContent");
+
+            const emptyContent =
+                document.getElementById("noReportSelected");
+
+
+            if (!selectedReport) {
+
+                detailsContent.style.display = "none";
+                emptyContent.style.display = "block";
+
+                document.getElementById("correctClueCheck").checked = false;
+                document.getElementById("contradictionCheck").checked = false;
+                document.getElementById("missedClueCheck").checked = false;
+                document.getElementById("reviewFeedback").value = "";
+
+                return;
+
+            }
+
+
+            detailsContent.style.display = "block";
+            emptyContent.style.display = "none";
+
+
+            // Report information
+            document.getElementById("detailReportId").textContent =
+                selectedReport.id;
+
+            document.getElementById("detailTheoryTitle").textContent =
+                selectedReport.theoryTitle;
+
+            document.getElementById("detailTheory").textContent =
+                selectedReport.theory;
+
+            document.getElementById("detailReportUser").textContent =
+                selectedReport.user;
+
+            document.getElementById("detailReportCase").textContent =
+                selectedReport.caseId;
+
+            document.getElementById("detailReportTime").textContent =
+                selectedReport.timeTaken;
+
+            document.getElementById("detailReportHints").textContent =
+                selectedReport.hintsUsed;
+
+            document.getElementById("detailReportScore").textContent =
+                selectedReport.score + " / 1000";
+
+            document.getElementById("detailReportStatus").textContent =
+                selectedReport.status;
+
+
+            // Evidence used
+            const evidenceList =
+                document.getElementById("detailEvidenceList");
+
+            evidenceList.innerHTML =
+                selectedReport.evidence.map(function (item) {
+
+                    return `
+                        <span class="report-evidence-tag">
+                            <i class="bi bi-fingerprint"></i>
+                            ${escapeHTML(item)}
+                        </span>
+                    `;
+
+                }).join("");
+
+
+            // Load saved review information
+            document.getElementById("correctClueCheck").checked =
+                selectedReport.review.correctClue;
+
+            document.getElementById("contradictionCheck").checked =
+                selectedReport.review.contradiction;
+
+            document.getElementById("missedClueCheck").checked =
+                selectedReport.review.missedClue;
+
+            document.getElementById("reviewFeedback").value =
+                selectedReport.review.feedback;
+
+
+            // Update performance information
+            updatePerformance(selectedReport);
+
+        }
+
+
+        // Display case performance
+        function updatePerformance(report) {
+
+            document.getElementById("performanceCaseId").textContent =
+                report.caseId;
+
+            document.getElementById("performanceCorrectClues").textContent =
+                report.correctClues + " / " + report.cluesUsed;
+
+            document.getElementById("performanceCluesUsed").textContent =
+                report.cluesUsed;
+
+            document.getElementById("performanceTime").textContent =
+                report.timeTaken;
+
+            document.getElementById("performanceHints").textContent =
+                report.hintsUsed;
+
+            document.getElementById("performanceQuality").textContent =
+                report.theoryQuality;
+
+        }
+
+
+        // Display submitted reports
+        function renderReports() {
+
+            const tableBody =
+                document.getElementById("reportTableBody");
+
+            const searchValue =
+                document.getElementById("reportSearch").value.toLowerCase();
+
+            const selectedStatus =
+                document.getElementById("reportStatusFilter").value;
+
+
+            const filteredReports = reports.filter(function (item) {
+
+                const matchesSearch =
+                    item.id.toLowerCase().includes(searchValue) ||
+                    item.user.toLowerCase().includes(searchValue) ||
+                    item.caseId.toLowerCase().includes(searchValue) ||
+                    item.theoryTitle.toLowerCase().includes(searchValue);
+
+                const matchesStatus =
+                    selectedStatus === "all" ||
+                    item.status === selectedStatus;
+
+                return matchesSearch && matchesStatus;
+
+            });
+
+
+            document.getElementById("reportCount").textContent =
+                filteredReports.length + " reports";
+
+
+            if (filteredReports.length === 0) {
+
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="8" class="report-empty">
+                            No matching reports found.
+                        </td>
+                    </tr>
+                `;
+
+            } else {
+
+                tableBody.innerHTML = filteredReports.map(function (item) {
+
+                    return `
+                        <tr class="${item.id === selectedReportId ? "selected-report" : ""}">
+
+                            <td>
+                                <span class="report-id">
+                                    ${escapeHTML(item.id)}
+                                </span>
+                            </td>
+
+                            <td>
+                                <div class="report-user-cell">
+                                    <strong>${escapeHTML(item.user)}</strong>
+                                    <small>${escapeHTML(item.submitted)}</small>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="report-title-cell">
+                                    <strong>${escapeHTML(item.caseId)}</strong>
+                                    <small>${escapeHTML(item.theoryTitle)}</small>
+                                </div>
+                            </td>
+
+                            <td>${item.evidence.length} items</td>
+
+                            <td>
+                                <span class="report-result ${getResultClass(item.result)}">
+                                    ${escapeHTML(item.result)}
+                                </span>
+                            </td>
+
+                            <td>${item.score}</td>
+
+                            <td>
+                                <span class="report-status ${getReportStatusClass(item.status)}">
+                                    ${escapeHTML(item.status)}
+                                </span>
+                            </td>
+
+                            <td>
+                                <button type="button"
+                                    class="report-view-btn"
+                                    data-report-id="${escapeHTML(item.id)}">
+
+                                    <i class="bi bi-eye me-1"></i>
+                                    View
+
+                                </button>
+                            </td>
+
+                        </tr>
+                    `;
+
+                }).join("");
+
+            }
+
+
+            // Keep the selected report visible when possible
+            if (!filteredReports.some(function (item) {
+                return item.id === selectedReportId;
+            })) {
+
+                selectedReportId =
+                    filteredReports.length > 0
+                        ? filteredReports[0].id
+                        : null;
+
+            }
+
+
+            updateReportSummary();
+
+            showReportDetails(selectedReportId);
+
+        }
+
+
+        // Select report from the table
+        document.getElementById("reportTableBody").addEventListener("click", function (event) {
+
+            const button = event.target.closest("button[data-report-id]");
+
+            if (!button) {
+                return;
+            }
+
+            selectedReportId = button.dataset.reportId;
+
+            document.getElementById("reviewMessage").textContent = "";
+
+            renderReports();
+
+        });
+
+
+        // Get currently selected report
+        function getSelectedReport() {
+
+            return reports.find(function (item) {
+                return item.id === selectedReportId;
+            });
+
+        }
+
+
+        // Save review checklist and feedback
+        function saveReview() {
+
+            const selectedReport = getSelectedReport();
+
+            if (!selectedReport) {
+
+                alert("Please select a report first.");
+
+                return false;
+
+            }
+
+
+            selectedReport.review = {
+
+                correctClue:
+                    document.getElementById("correctClueCheck").checked,
+
+                contradiction:
+                    document.getElementById("contradictionCheck").checked,
+
+                missedClue:
+                    document.getElementById("missedClueCheck").checked,
+
+                feedback:
+                    document.getElementById("reviewFeedback").value.trim()
+
+            };
+
+
+            if (selectedReport.status === "Pending") {
+                selectedReport.status = "Reviewed";
+            }
+
+
+            saveReports();
+
+            renderReports();
+
+            document.getElementById("reviewMessage").textContent =
+                "Review saved successfully.";
+
+            return true;
+
+        }
+
+
+        // Save review button
+        document.getElementById("saveReviewButton").addEventListener("click", function () {
+
+            saveReview();
+
+        });
+
+
+        // Approve report
+        document.getElementById("approveReportButton").addEventListener("click", function () {
+
+            const selectedReport = getSelectedReport();
+
+            if (!selectedReport) {
+
+                alert("Please select a report first.");
+
+                return;
+
+            }
+
+
+            const confirmApproval = confirm(
+                "Are you sure you want to approve this report?"
+            );
+
+            if (!confirmApproval) {
+                return;
+            }
+
+
+            saveReview();
+
+
+            selectedReport.status = "Approved";
+            selectedReport.result = "Correct";
+
+
+            saveReports();
+
+            renderReports();
+
+            document.getElementById("reviewMessage").textContent =
+                "Report approved successfully.";
+
+        });
+
+
+        // Reject report
+        document.getElementById("rejectReportButton").addEventListener("click", function () {
+
+            const selectedReport = getSelectedReport();
+
+            if (!selectedReport) {
+
+                alert("Please select a report first.");
+
+                return;
+
+            }
+
+
+            const confirmRejection = confirm(
+                "Are you sure you want to reject this report?"
+            );
+
+            if (!confirmRejection) {
+                return;
+            }
+
+
+            saveReview();
+
+
+            selectedReport.status = "Rejected";
+            selectedReport.result = "Incorrect";
+
+
+            saveReports();
+
+            renderReports();
+
+            document.getElementById("reviewMessage").textContent =
+                "Report rejected successfully.";
+
+        });
+
+
+        // Search reports
+        document.getElementById("reportSearch").addEventListener("input", function () {
+
+            renderReports();
+
+        });
+
+
+        // Filter reports by status
+        document.getElementById("reportStatusFilter").addEventListener("change", function () {
+
+            renderReports();
+
+        });
+
+
+        // Initial display
+        renderReports();
+
+    </script>
+
+</body>
+
+</html>

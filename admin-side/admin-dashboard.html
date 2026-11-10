@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CaseVault | Admin Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar">
+
+            <div class="admin-brand">
+                <i class="bi bi-shield-lock-fill admin-brand-icon"></i>
+
+                <div>
+                    <h4>CASE<span>VAULT</span></h4>
+                    <small>ADMIN PANEL</small>
+                </div>
+            </div>
+
+            <p class="sidebar-heading">MAIN MENU</p>
+
+            <nav class="sidebar-menu">
+
+                <a href="admin-dashboard.html" class="active">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    Dashboard
+                </a>
+
+                <a href="admin-cases.html">
+                    <i class="bi bi-folder2-open"></i>
+                    Case Management
+                </a>
+
+                <a href="admin-evidence.html">
+                    <i class="bi bi-fingerprint"></i>
+                    Evidence & Clues
+                </a>
+
+                <a href="admin-users.html">
+                    <i class="bi bi-people-fill"></i>
+                    People
+                </a>
+
+                <a href="admin-reports.html">
+                    <i class="bi bi-clipboard-data-fill"></i>
+                    Reports & Analytics
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="admin-account">
+                    <div class="admin-avatar">A</div>
+
+                    <div>
+                        <h6>Administrator</h6>
+                        <small>System Admin</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="admin-main">
+
+            <!-- TOP NAVBAR -->
+            <header class="admin-topbar">
+
+                <div class="topbar-title">
+                    <h5>Admin Workspace</h5>
+                    <small id="currentDate">Welcome to CaseVault</small>
+                </div>
+
+                <div class="topbar-actions">
+
+                    <!-- Search -->
+                    <div class="admin-search">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="dashboardSearch" placeholder="Search investigations...">
+                    </div>
+
+                    <!-- Alerts -->
+                    <div class="dropdown">
+
+                        <button class="topbar-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            aria-label="Notifications">
+
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-dot"></span>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <h6 class="dropdown-header">Notifications</h6>
+                            </li>
+
+                            <li>
+                                <span class="dropdown-item">
+                                    3 reports are waiting for review.
+                                </span>
+                            </li>
+
+                            <li>
+                                <span class="dropdown-item">
+                                    2 investigations were flagged.
+                                </span>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Online Status -->
+                    <div class="admin-status">
+                        <span></span>
+                        Online
+                    </div>
+
+                    <!-- Profile -->
+                    <div class="dropdown">
+
+                        <button class="topbar-icon" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                            aria-label="Admin profile">
+
+                            <i class="bi bi-person-circle"></i>
+
+                        </button>
+
+                        <ul class="dropdown-menu dropdown-menu-end">
+
+                            <li>
+                                <span class="dropdown-item">
+                                    Administrator
+                                </span>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="../client-side/home.html">
+                                    <i class="bi bi-house me-2"></i>
+                                    Client Home
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- DASHBOARD CONTENT -->
+            <section class="dashboard-content">
+
+                <!-- Page Heading -->
+                <div class="page-heading">
+
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p>Monitor cases, investigations and system activity.</p>
+                    </div>
+
+                    <button class="export-btn" id="exportAnalytics">
+                        <i class="bi bi-download me-2"></i>
+                        Export Analytics
+                    </button>
+
+                </div>
+
+
+                <!-- STATISTICS -->
+                <div class="stats-row">
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <p>Total Cases</p>
+                            <div class="stat-icon icon-red">
+                                <i class="bi bi-folder2-open"></i>
+                            </div>
+                        </div>
+
+                        <h2 id="totalCases">0</h2>
+                        <small>All registered cases</small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <p>Active Cases</p>
+                            <div class="stat-icon icon-yellow">
+                                <i class="bi bi-search"></i>
+                            </div>
+                        </div>
+
+                        <h2 id="activeCases">0</h2>
+                        <small>Currently under investigation</small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <p>Solved Cases</p>
+                            <div class="stat-icon icon-green">
+                                <i class="bi bi-check-circle"></i>
+                            </div>
+                        </div>
+
+                        <h2 id="solvedCases">0</h2>
+                        <small>Successfully completed</small>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-top">
+                            <p>Reports</p>
+                            <div class="stat-icon icon-blue">
+                                <i class="bi bi-file-earmark-text"></i>
+                            </div>
+                        </div>
+
+                        <h2 id="totalReports">0</h2>
+                        <small>Sample submitted reports</small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHARTS SECTION -->
+                <div class="dashboard-row">
+
+                    <!-- Case Activity -->
+                    <div class="dashboard-panel activity-panel">
+
+                        <div class="panel-heading">
+
+                            <div>
+                                <h5>Case Activity</h5>
+                                <p class="panel-subtitle">
+                                    Sample weekly case activity
+                                </p>
+                            </div>
+
+                            <span class="case-id">This Week</span>
+
+                        </div>
+
+
+                        <!-- Chart Legend -->
+                        <div class="chart-legend">
+
+                            <div class="legend-item">
+                                <span class="legend-dot legend-new"></span>
+                                New
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot legend-active"></span>
+                                Active
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot legend-solved"></span>
+                                Solved
+                            </div>
+
+                            <div class="legend-item">
+                                <span class="legend-dot legend-closed"></span>
+                                Closed
+                            </div>
+
+                        </div>
+
+
+                        <!-- Sample Bar Chart -->
+                        <div class="chart-area">
+
+                            <div class="chart-column">
+                                <div class="chart-stack" style="height: 65%;">
+                                    <span class="closed" style="height: 15%;"></span>
+                                    <span class="solved" style="height: 35%;"></span>
+                                    <span class="active" style="height: 25%;"></span>
+                                    <span class="new" style="height: 25%;"></span>
+                                </div>
+                                <span class="chart-day">Mon</span>
+                            </div>
+
+                            <div class="chart-column">
+                                <div class="chart-stack" style="height: 80%;">
+                                    <span class="closed" style="height: 15%;"></span>
+                                    <span class="solved" style="height: 30%;"></span>
+                                    <span class="active" style="height: 30%;"></span>
+                                    <span class="new" style="height: 25%;"></span>
+                                </div>
+                                <span class="chart-day">Tue</span>
+                            </div>
+
+                            <div class="chart-column">
+                                <div class="chart-stack" style="height: 55%;">
+                                    <span class="closed" style="height: 15%;"></span>
+                                    <span class="solved" style="height: 30%;"></span>
+                                    <span class="active" style="height: 35%;"></span>
+                                    <span class="new" style="height: 20%;"></span>
+                                </div>
+                                <span class="chart-day">Wed</span>
+                            </div>
+
+                            <div class="chart-column">
+                                <div class="chart-stack" style="height: 95%;">
+                                    <span class="closed" style="height: 15%;"></span>
+                                    <span class="solved" style="height: 30%;"></span>
+                                    <span class="active" style="height: 25%;"></span>
+                                    <span class="new" style="height: 30%;"></span>
+                                </div>
+                                <span class="chart-day">Thu</span>
+                            </div>
+
+                            <div class="chart-column">
+                                <div class="chart-stack" style="height: 72%;">
+                                    <span class="closed" style="height: 15%;"></span>
+                                    <span class="solved" style="height: 35%;"></span>
+                                    <span class="active" style="height: 30%;"></span>
+                                    <span class="new" style="height: 20%;"></span>
+                                </div>
+                                <span class="chart-day">Fri</span>
+                            </div>
+
+                            <div class="chart-column">
+                                <div class="chart-stack" style="height: 85%;">
+                                    <span class="closed" style="height: 15%;"></span>
+                                    <span class="solved" style="height: 35%;"></span>
+                                    <span class="active" style="height: 25%;"></span>
+                                    <span class="new" style="height: 25%;"></span>
+                                </div>
+                                <span class="chart-day">Sat</span>
+                            </div>
+
+                            <div class="chart-column">
+                                <div class="chart-stack" style="height: 48%;">
+                                    <span class="closed" style="height: 15%;"></span>
+                                    <span class="solved" style="height: 30%;"></span>
+                                    <span class="active" style="height: 30%;"></span>
+                                    <span class="new" style="height: 25%;"></span>
+                                </div>
+                                <span class="chart-day">Sun</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Case Types -->
+                    <div class="dashboard-panel case-types-panel">
+
+                        <div class="panel-heading">
+                            <div>
+                                <h5>Case Types</h5>
+                                <p class="panel-subtitle">
+                                    Distribution by category
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="case-type">
+
+                            <div class="case-type-info">
+                                <span>Theft</span>
+                                <span>10</span>
+                            </div>
+
+                            <div class="type-progress">
+                                <span style="width: 85%;"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="case-type">
+
+                            <div class="case-type-info">
+                                <span>Fraud</span>
+                                <span>6</span>
+                            </div>
+
+                            <div class="type-progress">
+                                <span style="width: 60%;"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="case-type">
+
+                            <div class="case-type-info">
+                                <span>Cyber Crime</span>
+                                <span>5</span>
+                            </div>
+
+                            <div class="type-progress">
+                                <span style="width: 50%;"></span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="case-type">
+
+                            <div class="case-type-info">
+                                <span>Other</span>
+                                <span>3</span>
+                            </div>
+
+                            <div class="type-progress">
+                                <span style="width: 30%;"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT INVESTIGATIONS -->
+                <div class="dashboard-panel recent-panel mb-4">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <h5>Recent Investigations</h5>
+                            <p class="panel-subtitle">
+                                Overview of recent player investigations
+                            </p>
+                        </div>
+
+                        <a href="admin-reports.html">View Reports</a>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="admin-table">
+
+                            <thead>
+                                <tr>
+                                    <th>CASE ID</th>
+                                    <th>DETECTIVE</th>
+                                    <th>STATUS</th>
+                                    <th>SCORE</th>
+                                    <th>DATE</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="investigationTable">
+
+                                <tr>
+                                    <td class="case-id">CV-047</td>
+                                    <td>User A</td>
+                                    <td>
+                                        <span class="status-badge status-active">
+                                            Active
+                                        </span>
+                                    </td>
+                                    <td class="score">780</td>
+                                    <td>Today</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="case-id">CV-046</td>
+                                    <td>User B</td>
+                                    <td>
+                                        <span class="status-badge status-solved">
+                                            Solved
+                                        </span>
+                                    </td>
+                                    <td class="score">920</td>
+                                    <td>Yesterday</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="case-id">CV-045</td>
+                                    <td>User C</td>
+                                    <td>
+                                        <span class="status-badge status-review">
+                                            Under Review
+                                        </span>
+                                    </td>
+                                    <td class="score">650</td>
+                                    <td>2 Days Ago</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="case-id">CV-044</td>
+                                    <td>User D</td>
+                                    <td>
+                                        <span class="status-badge status-solved">
+                                            Solved
+                                        </span>
+                                    </td>
+                                    <td class="score">880</td>
+                                    <td>3 Days Ago</td>
+                                </tr>
+
+                                <tr id="noResults" style="display: none;">
+                                    <td colspan="5" class="text-center">
+                                        No matching investigations found.
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTTOM SUMMARY CARDS -->
+                <div class="dashboard-row">
+
+                    <!-- Detectives -->
+                    <div class="dashboard-panel bottom-panel">
+
+                        <div class="panel-heading">
+                            <h5>Detectives</h5>
+                        </div>
+
+                        <div class="bottom-panel-content">
+
+                            <div>
+                                <h3 id="totalUsers">0</h3>
+                                <p>Registered User Accounts</p>
+                            </div>
+
+                            <div class="bottom-panel-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+
+                        </div>
+
+                        <a href="admin-users.html" class="panel-action">
+                            View Users
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+
+                    <!-- Alert Center -->
+                    <div class="dashboard-panel bottom-panel">
+
+                        <div class="panel-heading">
+                            <h5>Alert Center</h5>
+                        </div>
+
+                        <div class="alert-summary">
+
+                            <div class="alert-item">
+                                <span>Reports to review</span>
+                                <span class="alert-count">3</span>
+                            </div>
+
+                            <div class="alert-item">
+                                <span>Flagged investigations</span>
+                                <span class="alert-count">2</span>
+                            </div>
+
+                        </div>
+
+                        <a href="admin-reports.html" class="panel-action">
+                            Review Reports
+                            <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="admin-footer">
+                CaseVault Admin Panel &copy; 2026. All rights reserved.
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Basic JavaScript -->
+    <script>
+
+        // Display current date
+        const dateElement = document.getElementById("currentDate");
+
+        const today = new Date();
+
+        dateElement.textContent = today.toLocaleDateString("en-IN", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+
+        // Search investigations
+        const searchInput = document.getElementById("dashboardSearch");
+        const tableRows = document.querySelectorAll("#investigationTable tr:not(#noResults)");
+        const noResults = document.getElementById("noResults");
+
+        searchInput.addEventListener("input", function () {
+
+            const searchValue = this.value.toLowerCase();
+            let visibleCount = 0;
+
+            tableRows.forEach(function (row) {
+
+                const rowText = row.textContent.toLowerCase();
+
+                if (rowText.includes(searchValue)) {
+                    row.style.display = "";
+                    visibleCount++;
+                } else {
+                    row.style.display = "none";
+                }
+
+            });
+
+            noResults.style.display = visibleCount === 0 ? "" : "none";
+
+        });
+
+
+        // Export dashboard data as CSV
+        document.getElementById("exportAnalytics").addEventListener("click", function () {
+
+            const csvData = [
+                ["Case ID", "Detective", "Status", "Score", "Date"]
+            ];
+
+            tableRows.forEach(function (row) {
+
+                const cells = row.querySelectorAll("td");
+
+                csvData.push([
+                    cells[0].textContent.trim(),
+                    cells[1].textContent.trim(),
+                    cells[2].textContent.trim(),
+                    cells[3].textContent.trim(),
+                    cells[4].textContent.trim()
+                ]);
+
+            });
+
+            const csvContent = csvData.map(function (row) {
+                return row.map(function (value) {
+                    return '"' + value.replace(/"/g, '""') + '"';
+                }).join(",");
+            }).join("\n");
+
+            const file = new Blob([csvContent], {
+                type: "text/csv"
+            });
+
+            const link = document.createElement("a");
+
+            link.href = URL.createObjectURL(file);
+            link.download = "casevault-investigations.csv";
+            link.click();
+
+            URL.revokeObjectURL(link.href);
+
+        });
+
+        // Display registered user count
+        const users = JSON.parse(localStorage.getItem("caseVaultUsers")) || [];
+
+        document.getElementById("totalUsers").textContent = users.length;
+
+        // Display case statistics
+        const cases = JSON.parse(localStorage.getItem("caseVaultAdminCases")) || [];
+
+        document.getElementById("totalCases").textContent = cases.length;
+
+        const activeCases = cases.filter(function (item) {
+            return item.status === "Published";
+        });
+
+        document.getElementById("activeCases").textContent = activeCases.length;
+
+        // Display solved cases
+        const solvedCases = cases.filter(function (item) {
+            return item.status === "Solved";
+        });
+
+        document.getElementById("solvedCases").textContent = solvedCases.length;
+
+        // Display total reports
+        const reports = JSON.parse(localStorage.getItem("caseVaultReports")) || [];
+
+        document.getElementById("totalReports").textContent = reports.length;
+
+    </script>
+
+</body>
+
+</html>

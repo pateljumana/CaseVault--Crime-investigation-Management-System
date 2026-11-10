@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CaseVault | Register</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Existing CaseVault CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .register-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 15px;
+            background-color: var(--bg-color, #0B0F14);
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 460px;
+            background-color: var(--card-color, #151D26);
+            border: 1px solid var(--border-color, #27313D);
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        .register-logo {
+            font-size: 42px;
+            color: var(--accent-color, #C62828);
+        }
+
+        .register-title {
+            color: var(--text-color, #F5F5F5);
+            font-weight: 700;
+        }
+
+        .register-description {
+            color: var(--muted-color, #9CA3AF);
+        }
+
+        .register-card label {
+            color: var(--text-color, #F5F5F5);
+            margin-bottom: 8px;
+        }
+
+        .register-card .form-control {
+            background-color: #0B0F14;
+            border: 1px solid #27313D;
+            color: #F5F5F5;
+            padding: 11px 13px;
+        }
+
+        .register-card .form-control:focus {
+            border-color: #C62828;
+            box-shadow: 0 0 0 0.2rem rgba(198, 40, 40, 0.2);
+        }
+
+        .register-card .form-control::placeholder {
+            color: #6B7280;
+        }
+
+        .register-btn {
+            background-color: #C62828;
+            color: white;
+            border: none;
+            padding: 11px;
+            font-weight: 600;
+        }
+
+        .register-btn:hover {
+            background-color: #E53935;
+            color: white;
+        }
+
+        .register-link {
+            color: #E53935;
+            text-decoration: none;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+
+        .register-message {
+            font-size: 14px;
+        }
+
+        @media (max-width: 576px) {
+            .register-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="register-page">
+
+        <div class="register-card">
+
+            <!-- Logo -->
+            <div class="text-center mb-4">
+
+                <div class="register-logo">
+                    <i class="bi bi-shield-lock"></i>
+                </div>
+
+                <h2 class="register-title mt-2">
+                    Create Account
+                </h2>
+
+                <p class="register-description">
+                    Join CaseVault and begin your investigation.
+                </p>
+
+            </div>
+
+            <!-- Registration Form -->
+            <form id="registerForm" novalidate>
+
+                <!-- Full Name -->
+                <div class="mb-3">
+
+                    <label for="fullName" class="form-label">
+                        Full Name
+                    </label>
+
+                    <input type="text"
+                           class="form-control"
+                           id="fullName"
+                           placeholder="Enter your full name">
+
+                    <small class="text-danger" id="nameError"></small>
+
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+
+                    <label for="email" class="form-label">
+                        Email Address
+                    </label>
+
+                    <input type="email"
+                           class="form-control"
+                           id="email"
+                           placeholder="Enter your email">
+
+                    <small class="text-danger" id="emailError"></small>
+
+                </div>
+
+                <!-- Password -->
+                <div class="mb-3">
+
+                    <label for="password" class="form-label">
+                        Password
+                    </label>
+
+                    <input type="password"
+                           class="form-control"
+                           id="password"
+                           placeholder="Create a password">
+
+                    <small class="text-danger" id="passwordError"></small>
+
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-3">
+
+                    <label for="confirmPassword" class="form-label">
+                        Confirm Password
+                    </label>
+
+                    <input type="password"
+                           class="form-control"
+                           id="confirmPassword"
+                           placeholder="Re-enter your password">
+
+                    <small class="text-danger" id="confirmPasswordError"></small>
+
+                </div>
+
+                <!-- Terms -->
+                <div class="form-check mb-3">
+
+                    <input class="form-check-input"
+                           type="checkbox"
+                           id="terms">
+
+                    <label class="form-check-label small"
+                           for="terms">
+                        I agree to the Terms and Conditions.
+                    </label>
+
+                    <br>
+
+                    <small class="text-danger" id="termsError"></small>
+
+                </div>
+
+                <!-- General Message -->
+                <div id="registerMessage"
+                     class="register-message mb-3"></div>
+
+                <!-- Register Button -->
+                <button type="submit"
+                        class="btn register-btn w-100">
+
+                    <i class="bi bi-person-plus me-2"></i>
+                    Create Account
+
+                </button>
+
+            </form>
+
+            <!-- Login Link -->
+            <p class="text-center mt-4 mb-0 register-description">
+
+                Already have an account?
+
+                <a href="login.html" class="register-link">
+                    Login here
+                </a>
+
+            </p>
+
+            <!-- Back to Home -->
+            <div class="text-center mt-3">
+
+                <a href="home.html" class="register-link small">
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- JavaScript Validation -->
+    <script>
+
+// ======================================
+// CLIENT REGISTRATION VALIDATION
+// ======================================
+
+const registerForm = document.getElementById("registerForm");
+
+if (registerForm) {
+
+    registerForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        // Get values
+        const fullName = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("email").value.trim().toLowerCase();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
+        const terms = document.getElementById("terms").checked;
+
+        // Error elements
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const confirmPasswordError = document.getElementById("confirmPasswordError");
+        const termsError = document.getElementById("termsError");
+        const registerMessage = document.getElementById("registerMessage");
+
+        // Clear previous errors
+        nameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+        termsError.textContent = "";
+        registerMessage.textContent = "";
+
+        let isValid = true;
+
+        // Name validation
+        if (fullName === "") {
+            nameError.textContent = "Please enter your full name.";
+            isValid = false;
+        }
+        else if (!/^[A-Za-z ]+$/.test(fullName)) {
+            nameError.textContent = "Name can contain only letters and spaces.";
+            isValid = false;
+        }
+
+        // Email validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+            emailError.textContent = "Please enter your email.";
+            isValid = false;
+        }
+        else if (!emailPattern.test(email)) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
+        }
+
+        // Password validation
+        if (password === "") {
+            passwordError.textContent = "Please create a password.";
+            isValid = false;
+        }
+        else if (password.length < 8) {
+            passwordError.textContent = "Password must contain at least 8 characters.";
+            isValid = false;
+        }
+        else if (password.length > 64) {
+            passwordError.textContent = "Password must not exceed 64 characters.";
+            isValid = false;
+        }
+        else if (!/[A-Za-z]/.test(password) || !/[0-9]/.test(password)) {
+            passwordError.textContent = "Password must contain at least one letter and one number.";
+            isValid = false;
+        }
+
+        // Confirm password validation
+        if (confirmPassword === "") {
+            confirmPasswordError.textContent = "Please confirm your password.";
+            isValid = false;
+        }
+        else if (password !== confirmPassword) {
+            confirmPasswordError.textContent = "Passwords do not match.";
+            isValid = false;
+        }
+
+        // Terms validation
+        if (!terms) {
+            termsError.textContent = "Please accept the Terms and Conditions.";
+            isValid = false;
+        }
+
+        // Check existing registered users
+        let users = JSON.parse(localStorage.getItem("caseVaultUsers")) || [];
+
+        const existingUser = users.find(function (user) {
+            return user.email === email;
+        });
+
+        if (existingUser) {
+            emailError.textContent = "This email is already registered. Please login.";
+            isValid = false;
+        }
+
+        // Save registered user
+        if (isValid) {
+
+            const newUser = {
+                fullName: fullName,
+                email: email,
+                password: password
+            };
+
+            users.push(newUser);
+
+            localStorage.setItem("caseVaultUsers", JSON.stringify(users));
+
+            registerMessage.textContent = "Registration successful! Please login.";
+            registerMessage.classList.add("text-success");
+
+            setTimeout(function () {
+                window.location.href = "login.html";
+            }, 1500);
+        }
+
+    });
+
+}
+
+
+    </script>
+
+</body>
+</html>

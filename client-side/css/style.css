@@ -1,0 +1,2947 @@
+
+/* General */
+:root {
+    --bg-color: #0B0F14;
+    --card-color: #151D26;
+    --card-hover: #1B2632;
+    --accent-color: #C62828;
+    --accent-hover: #E53935;
+    --success-color: #22C55E;
+    --text-color: #F5F5F5;
+    --muted-color: #9CA3AF;
+    --border-color: #27313D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* Navbar */
+.custom-navbar {
+    background: #10161D;
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: var(--text-color);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.navbar-brand:hover {
+    color: var(--text-color);
+}
+
+.brand-icon {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: #B8C0CA;
+    margin: 0 8px;
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+}
+
+.login-btn {
+    padding: 8px 22px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: white;
+    color: var(--bg-color);
+}
+
+
+/* Hero Section */
+
+.hero-section {
+    padding: 100px 0;
+    background:
+        radial-gradient(circle at top right,
+            rgba(198, 40, 40, 0.10), transparent 35%),
+        var(--bg-color);
+}
+
+.hero-content {
+    padding-right: 40px;
+}
+
+.section-label {
+    display: inline-block;
+    color: #E05252;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero-content h1 {
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--accent-color);
+}
+
+.hero-description {
+    color: var(--muted-color);
+    font-size: 17px;
+    max-width: 550px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.main-btn {
+    background: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.main-btn i {
+    margin-left: 8px;
+}
+
+.secondary-btn {
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-note {
+    color: var(--muted-color);
+    font-size: 14px;
+    margin-top: 25px;
+}
+
+.hero-note i {
+    color: var(--accent-color);
+    margin-right: 6px;
+}
+
+
+/* Hero Image */
+
+.hero-visual {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.hero-visual:hover .hero-image {
+    transform: scale(1.03);
+}
+
+
+/* Statistics */
+
+.statistics-section {
+    padding: 0 0 80px;
+}
+
+.stat-card {
+    height: 100%;
+    padding: 25px;
+    text-align: center;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    background: var(--card-hover);
+    border-color: #3A4654;
+    transform: translateY(-4px);
+}
+
+.stat-icon {
+    color: #E05252;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.green-icon {
+    color: var(--success-color);
+}
+
+.red-icon {
+    color: var(--accent-color);
+}
+
+.stat-card h3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    color: var(--muted-color);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Section Headings */
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: var(--muted-color);
+    margin-bottom: 0;
+}
+
+.view-all-link {
+    color: #E05252;
+    font-weight: bold;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.view-all-link:hover {
+    color: white;
+}
+
+.view-all-link i {
+    margin-left: 5px;
+}
+
+/* Case Cards */
+.cases-section {
+    background: #0E141B;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.case-card {
+    height: 100%;
+    overflow: hidden;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.case-card:hover {
+    transform: translateY(-7px);
+    border-color: #45515F;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.case-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px 0;
+}
+
+.case-number {
+    color: var(--muted-color);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.difficulty-badge {
+    padding: 6px 10px;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+.medium-badge {
+    background: rgba(251, 191, 36, 0.15);
+    color: #FBBF24;
+}
+
+.hard-badge {
+    background: rgba(198, 40, 40, 0.15);
+    color: #F87171;
+}
+
+.easy-badge {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--success-color);
+}
+
+
+/* Case Images */
+
+.case-image {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    margin-top: 15px;
+}
+
+.case-image-one {
+    background: #202B38;
+    color: #A5B4C5;
+}
+
+.case-image-two {
+    background: #29212B;
+    color: #D6A5A5;
+}
+
+.case-image-three {
+    background: #202B27;
+    color: #9CC7B0;
+}
+
+.case-card-body {
+    padding: 22px;
+}
+
+.case-card-body h4 {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.case-card-body p {
+    color: var(--muted-color);
+    font-size: 14px;
+    min-height: 68px;
+}
+
+.case-meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px 0;
+    color: #B8C0CA;
+    font-size: 12px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.case-meta i {
+    color: #E05252;
+    margin-right: 5px;
+}
+
+.case-button {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    padding: 10px;
+    background: transparent;
+    color: white;
+    border: 1px solid #394553;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.case-button:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+.case-button i {
+    margin-left: 8px;
+}
+
+
+/* How It Works */
+
+.centered-heading {
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.centered-heading h2 {
+    margin-bottom: 12px;
+}
+
+.step-card {
+    position: relative;
+    height: 100%;
+    padding: 30px 22px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.step-number {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    color: #394553;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.step-icon {
+    color: #E05252;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.step-card h4 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    color: var(--muted-color);
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+
+/* Call To Action */
+
+.cta-section {
+    padding: 60px 0;
+    background: #151A21;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cta-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.cta-content h2 {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.cta-content p {
+    color: var(--muted-color);
+    margin-bottom: 0;
+}
+
+/* Responsive Design */
+
+@media (max-width: 991px) {
+
+    .hero-section {
+        padding: 70px 0;
+    }
+
+    .hero-content {
+        padding-right: 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .cta-content h2 {
+        font-size: 27px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    section {
+        padding: 60px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-image {
+        height: 280px;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .view-all-link {
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .case-card-body p {
+        min-height: auto;
+    }
+
+    .cta-content {
+        display: block;
+    }
+
+    .cta-content .main-btn {
+        display: inline-block;
+        margin-top: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-content h1 {
+        font-size: 31px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-image {
+        height: 230px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .stat-card {
+        padding: 18px 10px;
+    }
+
+    .stat-card h3 {
+        font-size: 25px;
+    }
+}
+
+/* Case Briefing Page */
+
+/* ================= CASE BRIEFING PAGE ================= */
+
+.briefing-header {
+    padding: 30px 0 25px;
+    background-color: #10161D;
+    border-bottom: 1px solid #27313D;
+}
+
+.back-link {
+    display: block;
+    color: #9CA3AF;
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+.back-link:hover {
+    color: white;
+}
+
+.briefing-header h1 {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.briefing-header p {
+    color: #9CA3AF;
+    max-width: 650px;
+    margin-bottom: 0;
+}
+
+.briefing-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.briefing-tags .case-tag {
+    background-color: #151D26;
+    color: #9CA3AF;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* Briefing Content */
+
+.briefing-section {
+    padding: 30px 0;
+}
+
+.briefing-card,
+.briefing-sidebar {
+    background-color: #151D26;
+    border: 1px solid #27313D;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.briefing-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.briefing-card h3 i {
+    color: #C62828;
+    margin-right: 8px;
+}
+
+.briefing-card p {
+    color: #9CA3AF;
+    line-height: 1.7;
+}
+
+/* Crime Scene */
+
+.crime-scene {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #202B38;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.crime-scene > i {
+    font-size: 40px;
+    color: #C62828;
+}
+
+.crime-scene h4 {
+    font-size: 19px;
+}
+
+.crime-scene p {
+    margin-bottom: 5px;
+}
+
+.crime-scene span {
+    color: #9CA3AF;
+    font-size: 13px;
+}
+
+/* Person Details */
+
+.person-details {
+    display: flex;
+    gap: 20px;
+}
+
+.person-icon {
+    min-width: 60px;
+    height: 60px;
+    background-color: #202B38;
+    color: #C62828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    border-radius: 6px;
+}
+
+.person-details h4 {
+    font-size: 18px;
+}
+
+.person-details p {
+    margin-bottom: 8px;
+}
+
+/* Suspects */
+
+.suspect-card {
+    background-color: #202B38;
+    padding: 18px;
+    border-radius: 6px;
+    height: 100%;
+}
+
+.suspect-card i {
+    color: #C62828;
+    font-size: 25px;
+}
+
+.suspect-card h5 {
+    margin-top: 12px;
+    font-size: 16px;
+}
+
+.suspect-card p,
+.suspect-card span {
+    color: #9CA3AF;
+    font-size: 13px;
+}
+
+/* Witness Statements */
+
+.witness-item {
+    border-bottom: 1px solid #27313D;
+    padding: 15px 0;
+}
+
+.witness-item:last-child {
+    border-bottom: none;
+}
+
+.witness-item p {
+    margin: 8px 0 0;
+}
+
+/* Evidence */
+
+.evidence-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #27313D;
+}
+
+.evidence-item:last-child {
+    border-bottom: none;
+}
+
+.evidence-item i {
+    color: #C62828;
+    font-size: 25px;
+}
+
+.evidence-item h5 {
+    font-size: 16px;
+}
+
+.evidence-item p {
+    margin-bottom: 0;
+}
+
+/* Briefing Sidebar */
+
+.briefing-sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.briefing-sidebar h4 {
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #27313D;
+}
+
+.summary-item span {
+    color: #9CA3AF;
+}
+
+.briefing-sidebar h5 {
+    margin: 20px 0 10px;
+}
+
+.briefing-sidebar p {
+    color: #9CA3AF;
+    font-size: 14px;
+}
+
+.begin-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sidebar-note {
+    margin-top: 15px;
+    font-size: 12px !important;
+}
+
+.sidebar-note i {
+    color: #C62828;
+}
+
+/* Briefing Responsive Design */
+
+@media (max-width: 991px) {
+
+    .briefing-sidebar {
+        position: static;
+    }
+
+    .briefing-header h1 {
+        font-size: 32px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .briefing-header {
+        padding: 25px 0 20px;
+    }
+
+    .briefing-header h1 {
+        font-size: 28px;
+    }
+
+    .briefing-section {
+        padding: 25px 0;
+    }
+
+    .briefing-card,
+    .briefing-sidebar {
+        padding: 18px;
+    }
+
+    .suspect-card {
+        margin-bottom: 10px;
+    }
+
+    .person-details {
+        gap: 12px;
+    }
+
+}
+
+:root {
+    --bg: #0B0F14;
+    --card: #151D26;
+    --hover: #1B2632;
+    --red: #C62828;
+    --red-hover: #E53935;
+    --green: #22C55E;
+    --text: #F5F5F5;
+    --muted: #9CA3AF;
+    --border: #27313D;
+    --gold: #EAB308;
+}
+
+button,
+select,
+textarea {
+    font-family: inherit;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: #10161E;
+    padding: 14px 6.5%;
+    border-bottom: none;
+}
+
+.navbar .container-fluid {
+    max-width: 1550px;
+    margin: auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #F5F5F5;
+    letter-spacing: -0.5px;
+}
+
+.brand:hover {
+    color: white;
+}
+
+.brand-icon {
+    width: 28px;
+    height: 31px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.navbar-nav {
+    gap: 32px;
+}
+
+.navbar .nav-link {
+    color: #D1D5DB;
+    font-size: 18px;
+    padding: 8px 4px;
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #FFFFFF;
+}
+
+.navbar .nav-link.active {
+    color: #FFFFFF;
+}
+
+.navbar .login-btn {
+    color: #FFFFFF;
+    border: 1px solid #F5F5F5;
+    border-radius: 8px;
+    padding: 12px 27px;
+    font-size: 18px;
+    background: transparent;
+    transition: 0.2s ease;
+}
+
+.navbar .login-btn:hover {
+    background: #F5F5F5;
+    color: #10161E;
+}
+
+.navbar-toggler {
+    border: 1px solid #394451;
+    padding: 7px 10px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ================= PAGE ================= */
+
+.page-container {
+    width: 92%;
+    max-width: 1500px;
+    margin: 20px auto;
+}
+
+.case-header {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.case-tag {
+    color: #ff7070;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 6px 0;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.progress-area {
+    width: 280px;
+}
+
+.progress {
+    height: 9px;
+    background: #303844;
+    border-radius: 20px;
+}
+
+.progress-bar {
+    background: var(--red);
+    transition: width 0.3s;
+}
+
+.status {
+    border: 1px solid #5c2525;
+    color: #ff7777;
+    background: #201316;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 0.78fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 0;
+}
+
+.panel-title {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.section-subtitle {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* ================= CRIME SCENE ================= */
+
+.scene {
+    height: 270px;
+    border-radius: 10px;
+    border: 1px solid #36404C;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 20%, #293744 0%, transparent 50%),
+        linear-gradient(135deg, #202A34, #10151C 65%, #29303A);
+}
+
+.scene::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    background: linear-gradient(#303B47, #1A222B);
+    border-bottom: 3px solid #111820;
+}
+
+.scene-floor {
+    position: absolute;
+    bottom: 0;
+    height: 35%;
+    width: 100%;
+    background: repeating-linear-gradient(90deg,
+            #171E26,
+            #171E26 60px,
+            #202832 61px,
+            #202832 63px);
+}
+
+.scene-object {
+    position: absolute;
+    z-index: 2;
+    border: 2px solid #f87171;
+    background: #C62828;
+    color: white;
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 0 5px rgba(198, 40, 40, 0.15);
+    animation: pulse 2s infinite;
+    transition: 0.2s;
+}
+
+.scene-object:hover {
+    transform: scale(1.15);
+    background: var(--red-hover);
+}
+
+.scene-object.found {
+    background: #166534;
+    border-color: var(--green);
+    animation: none;
+    box-shadow: none;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 4px rgba(198, 40, 40, 0.15);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(198, 40, 40, 0.05);
+    }
+}
+
+.scene-label {
+    position: absolute;
+    z-index: 1;
+    color: #D1D5DB;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 4px 8px;
+    border-radius: 5px;
+}
+
+/* ================= EVIDENCE ================= */
+
+.evidence-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.evidence-card {
+    background: #10161E;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.evidence-card:hover {
+    border-color: #526171;
+    transform: translateY(-2px);
+}
+
+.evidence-card strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.evidence-card small {
+    color: var(--muted);
+}
+
+.collected {
+    color: var(--green);
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+/* ================= SUSPECTS ================= */
+
+.suspect-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.suspect-button {
+    flex: 1;
+    min-width: 0;
+    background: #10161E;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 9px;
+    padding: 12px 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.suspect-button:hover,
+.suspect-button.active {
+    border-color: var(--red);
+    background: #241719;
+}
+
+.suspect-avatar {
+    width: 45px;
+    height: 45px;
+    margin: auto auto 8px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #303A46;
+    font-size: 22px;
+}
+
+.suspect-button small {
+    color: var(--muted);
+    display: block;
+}
+
+/* ================= FORMS ================= */
+
+.form-select,
+.form-control {
+    background: #10161E;
+    color: white;
+    border: 1px solid #394451;
+}
+
+.form-select:focus,
+.form-control:focus {
+    background: #10161E;
+    color: white;
+    border-color: var(--red);
+    box-shadow: none;
+}
+
+.form-select option {
+    background: #10161E;
+    color: white;
+}
+
+.btn-red {
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 18px;
+    transition: 0.2s;
+}
+
+.btn-red:hover {
+    background: var(--red-hover);
+    color: white;
+}
+
+/* ================= DIALOGUE ================= */
+
+.dialogue {
+    background: #10161E;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 15px;
+    margin-top: 15px;
+    min-height: 110px;
+    line-height: 1.6;
+}
+
+.dialogue-name {
+    color: #ff7070;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* ================= SUSPECT PROFILE ================= */
+
+.suspect-profile {
+    background: #10161E;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.suspect-profile strong {
+    font-size: 14px;
+}
+
+/* ================= NOTEBOOK ================= */
+
+.notebook {
+    margin-top: 15px;
+    border-color: #55441E;
+}
+
+.notebook textarea {
+    min-height: 130px;
+    resize: vertical;
+    margin-top: 10px;
+}
+
+/* ================= DEDUCTION ================= */
+
+.deduction-panel {
+    margin-top: 20px;
+    border-color: #4A3D1D;
+}
+
+.clue-connect {
+    display: grid;
+    grid-template-columns: 1fr 35px 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.clue-select {
+    background: #10161E;
+    border: 1px dashed #526171;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    width: 100%;
+    min-width: 0;
+}
+
+.clue-select:focus {
+    border-color: var(--gold);
+    outline: none;
+}
+
+.plus {
+    color: var(--red);
+    font-size: 25px;
+    text-align: center;
+}
+
+.deduction-result {
+    background: #201B12;
+    border: 1px solid #66501F;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+    display: none;
+    line-height: 1.5;
+}
+
+.deduction-result.show {
+    display: block;
+}
+
+/* ================= ACCUSATION ================= */
+
+.accusation {
+    margin-top: 20px;
+    border-color: #5C2929;
+}
+
+.feedback {
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 8px;
+    display: none;
+}
+
+.feedback.show {
+    display: block;
+}
+
+.feedback.correct {
+    background: #10251A;
+    border: 1px solid #22663B;
+    color: #86EFAC;
+}
+
+.feedback.wrong {
+    background: #2A1517;
+    border: 1px solid #6B2525;
+    color: #FCA5A5;
+}
+
+/* ================= HINT ================= */
+
+.hint-box {
+    background: #201B12;
+    border: 1px solid #5B481E;
+    color: #FDE68A;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+    display: none;
+}
+
+.hint-box.show {
+    display: block;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1100px) {
+    .main-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sidebar {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+    .sidebar .panel {
+        margin: 0;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 991px) {
+    .navbar {
+        padding: 12px 5%;
+    }
+
+    .navbar-nav {
+        gap: 8px;
+        margin-top: 15px;
+        align-items: flex-start !important;
+    }
+
+    .navbar .login-btn {
+        margin-top: 5px;
+        padding: 9px 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        padding: 15px;
+    }
+
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        grid-column: auto;
+        display: block;
+    }
+
+    .sidebar .panel {
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .progress-area {
+        width: 100%;
+    }
+
+    .case-header {
+        padding: 16px;
+    }
+
+    .scene {
+        height: 220px;
+    }
+
+    .clue-connect {
+        grid-template-columns: 1fr;
+    }
+
+    .plus {
+        font-size: 20px;
+    }
+
+    .evidence-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+    .brand {
+        font-size: 25px;
+    }
+
+    .brand-icon {
+        width: 29px;
+        height: 32px;
+    }
+
+    .suspect-buttons {
+        gap: 5px;
+    }
+
+    .suspect-button {
+        font-size: 12px;
+        padding: 8px 3px;
+    }
+
+    .evidence-list {
+        grid-template-columns: 1fr;
+    }
+
+    .scene-object {
+        width: 38px;
+        height: 38px;
+    }
+
+    .panel {
+        padding: 14px;
+    }
+}
+
+/* ================= CLUE INSPECTION PAGE ================= */
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+    background-color: #10161D;
+    min-height: 83px;
+    padding: 12px 0;
+}
+
+.navbar .container {
+    max-width: 1600px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #F5F5F5 !important;
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar-brand i {
+    color: #C62828;
+    font-size: 30px;
+}
+
+.navbar-nav {
+    gap: 28px;
+}
+
+.navbar .nav-link {
+    color: #F5F5F5 !important;
+    font-size: 19px;
+    font-weight: 400;
+    padding: 10px 4px;
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #C62828 !important;
+}
+
+.navbar .nav-link.active {
+    color: #FFFFFF;
+}
+
+.navbar .login-btn {
+    min-width: 106px;
+    padding: 12px 27px;
+    font-size: 19px;
+    border: 1px solid #F5F5F5;
+    border-radius: 8px;
+    color: #F5F5F5;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.navbar .login-btn:hover {
+    background-color: #C62828;
+    border-color: #C62828;
+    color: #FFFFFF;
+}
+
+/* =====================================
+   CLUE PAGE
+===================================== */
+
+.clue-page {
+    max-width: 1200px;
+    padding: 40px 20px 70px;
+}
+
+.clue-top {
+    margin-bottom: 30px;
+}
+
+.clue-back {
+    display: inline-block;
+    color: var(--muted-color);
+    margin-bottom: 25px;
+}
+
+.clue-back:hover {
+    color: white;
+}
+
+.clue-case-label,
+.clue-small-label {
+    color: #E05252;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.clue-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.clue-top h1 {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.clue-progress-card,
+.clue-panel {
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 25px;
+}
+
+.clue-count {
+    color: #E05252;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.clue-progress-card .progress {
+    height: 7px;
+    background: #303844;
+}
+
+.clue-progress-card .progress-bar {
+    background: var(--accent-color);
+}
+
+.clue-panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.clue-panel-heading h2,
+.deduction-card h2 {
+    font-size: 25px;
+    margin: 8px 0;
+}
+
+.evidence-status {
+    color: var(--success-color);
+    font-size: 13px;
+}
+
+.evidence-visual {
+    position: relative;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid #35414F;
+    border-radius: 8px;
+    background: radial-gradient(circle, #293744, #10161D 75%);
+    overflow: hidden;
+}
+
+.evidence-visual-icon {
+    font-size: 100px;
+    color: #C8D0DA;
+    transition: 0.3s;
+}
+
+.evidence-visual:hover .evidence-visual-icon {
+    transform: scale(1.1);
+    color: #E05252;
+}
+
+.visual-label,
+.visual-number {
+    position: absolute;
+    color: #9CA3AF;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.visual-label {
+    bottom: 15px;
+    left: 15px;
+}
+
+.visual-number {
+    top: 15px;
+    right: 15px;
+}
+
+.clue-panel h3 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.evidence-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.evidence-details div {
+    flex: 1;
+    min-width: 100px;
+}
+
+.evidence-details span,
+.evidence-details strong {
+    display: block;
+    font-size: 13px;
+}
+
+.evidence-details span {
+    color: var(--muted-color);
+    margin-bottom: 5px;
+}
+
+.inspection-result {
+    display: none;
+    margin-top: 20px;
+    padding: 18px;
+    background: #201B12;
+    border: 1px solid #66501F;
+    border-radius: 8px;
+}
+
+.inspection-result.show {
+    display: block;
+}
+
+.inspection-result h5 {
+    color: #FDE68A;
+    font-size: 16px;
+}
+
+.inspection-result p {
+    color: #D1D5DB;
+    font-size: 14px;
+}
+
+.deduction-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    margin-top: 12px;
+    background: #10161E;
+    border: 1px solid var(--border-color);
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.deduction-option:hover {
+    border-color: var(--accent-color);
+    background: #201719;
+}
+
+.deduction-option input {
+    margin-top: 5px;
+    accent-color: var(--accent-color);
+}
+
+.deduction-option label {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.deduction-feedback,
+.notes-feedback {
+    display: none;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.deduction-feedback.show {
+    display: block;
+}
+
+.deduction-feedback.correct {
+    color: #86EFAC;
+    background: #10251A;
+    border: 1px solid #22663B;
+}
+
+.deduction-feedback.wrong {
+    color: #FCA5A5;
+    background: #2A1517;
+    border: 1px solid #6B2525;
+}
+
+.clue-hint {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 15px;
+    color: #FDE68A;
+    background: #201B12;
+    border: 1px solid #5B481E;
+    border-radius: 8px;
+}
+
+.clue-hint p {
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+.notebook-card h3 i {
+    color: var(--accent-color);
+    margin-right: 8px;
+}
+
+.notebook-card textarea {
+    background: #10161E;
+    color: white;
+    border-color: #394451;
+    resize: vertical;
+}
+
+.notebook-card textarea:focus {
+    background: #10161E;
+    color: white;
+    border-color: var(--accent-color);
+    box-shadow: none;
+}
+
+.notes-feedback {
+    display: block;
+    color: var(--success-color);
+}
+
+.clue-navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn-outline-light {
+    padding: 10px 18px;
+    border: 1px solid #394451;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-outline-light:hover {
+    background: white;
+    color: #10161E;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 991px) {
+
+    .navbar-brand {
+        font-size: 25px;
+    }
+
+    .navbar-brand i {
+        font-size: 26px;
+    }
+
+    .navbar-nav {
+        gap: 8px;
+        padding-top: 15px;
+    }
+
+    .login-btn {
+        margin-top: 5px;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .clue-page {
+        padding: 25px 15px 50px;
+    }
+
+    .clue-top h1 {
+        font-size: 30px;
+    }
+
+    .clue-panel,
+    .clue-progress-card {
+        padding: 18px;
+    }
+
+    .evidence-visual {
+        height: 220px;
+    }
+
+    .evidence-visual-icon {
+        font-size: 75px;
+    }
+
+    .clue-navigation {
+        flex-direction: column;
+    }
+
+    .clue-navigation a {
+        text-align: center;
+    }
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.main-layout .notebook-wide {
+    grid-column: 1 / -1;
+}
+
+
+/* ==========================================
+   SUSPECT COMPARISON & SOLVE PAGE
+========================================== */
+
+.solve-page {
+    min-height: auto !important;
+    padding-top: 20px !important;
+    padding-bottom: 35px !important;
+}
+
+/* Reduce Bootstrap spacing inside solve page */
+.solve-page .py-5 {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.solve-page .mb-5 {
+    margin-bottom: 25px !important;
+}
+
+/* Suspect comparison cards */
+.suspect-compare-card,
+.final-accusation-panel {
+    background-color: var(--card-color);
+    border-color: var(--border-color) !important;
+    transition: 0.2s ease;
+}
+
+.suspect-compare-card:hover {
+    background-color: var(--card-hover);
+    transform: translateY(-3px);
+}
+
+.suspect-compare-card h6 {
+    color: var(--text-color);
+    margin-top: 18px;
+}
+
+.suspect-icon {
+    color: var(--accent-color);
+}
+
+/* Final accusation panel */
+.final-accusation-panel {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+/* Deduction options */
+.solve-page .deduction-option {
+    background-color: var(--card-color);
+    border-color: var(--border-color) !important;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.solve-page .deduction-option:hover {
+    background-color: var(--card-hover);
+    border-color: var(--accent-color) !important;
+}
+
+.solve-page .deduction-option input {
+    accent-color: var(--accent-color);
+}
+
+/* Accusation result */
+#accusationResult {
+    background-color: var(--bg-color);
+    border-color: var(--border-color) !important;
+}
+
+/* Verdict hero */
+.solve-page .verdict-hero {
+    margin-bottom: 20px !important;
+    padding-bottom: 0 !important;
+}
+
+.solve-page .verdict-hero-content {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.solve-page .verdict-summary-card {
+    margin-top: 0 !important;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .solve-page {
+        padding-top: 20px !important;
+    }
+
+    .suspect-compare-card {
+        padding: 20px !important;
+    }
+
+    .final-accusation-panel {
+        padding: 20px !important;
+    }
+
+    .solve-page .mb-5 {
+        margin-bottom: 20px !important;
+    }
+}
+
+/* FINAL VERDICT IMAGE BANNER */
+
+.verdict-image-banner {
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.verdict-image-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .verdict-image-banner {
+        border-radius: 6px;
+    }
+}
+
+/* =========================================================
+   CLUE & SUSPECT ANALYSIS PAGE — REFINED LAYOUT
+   These styles are scoped to .clue-page so other client
+   pages keep their existing appearance.
+========================================================= */
+
+/* Prevent the general section padding from creating large gaps
+   between the sections on the clue page. */
+.clue-page {
+    width: 100%;
+    max-width: 1320px;
+    padding: 28px 22px 50px !important;
+}
+
+.clue-page > section {
+    padding: 0;
+}
+
+.clue-page .text-secondary {
+    color: #A4ADB8 !important;
+}
+
+.clue-page .clue-top {
+    margin-bottom: 18px !important;
+}
+
+/* CASE HERO */
+
+.clue-hero {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 27px 30px !important;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(198, 40, 40, 0.12), transparent 35%),
+        linear-gradient(120deg, #151D26, #111820 65%, #1B2027);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.clue-hero-content {
+    flex: 1 1 580px;
+    align-self: center;
+    min-width: 0;
+}
+
+.clue-case-number {
+    color: #E05252;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.clue-hero-content h1 {
+    color: var(--text-color);
+    font-size: clamp(29px, 3vw, 39px);
+    line-height: 1.15;
+    margin: 7px 0 12px;
+}
+
+.clue-hero-description {
+    max-width: 650px;
+    color: var(--muted-color);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 17px;
+}
+
+.clue-hero-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.clue-hero-facts span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 11px;
+    color: #D8DEE6;
+    background: #202A35;
+    border: 1px solid #34404D;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.clue-hero-facts i {
+    color: #E05252;
+    font-size: 14px;
+}
+
+.clue-hero-facts strong {
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+/* CSS-MADE CASE DOSSIER VISUAL */
+
+.clue-hero-visual {
+    flex: 0 1 330px;
+    min-width: 250px;
+    min-height: 218px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 1px solid #3B4652;
+    border-radius: 9px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(198, 40, 40, 0.13), transparent 50%),
+        repeating-linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.018) 0,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px,
+            transparent 10px
+        ),
+        #10161E;
+}
+
+.clue-dossier {
+    width: 100%;
+    max-width: 260px;
+    padding: 15px 17px;
+    background: linear-gradient(145deg, #222D38, #171F28);
+    border: 1px solid #475361;
+    border-radius: 7px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    transform: rotate(-2deg);
+    transition: 0.25s ease;
+}
+
+.clue-hero-visual:hover .clue-dossier {
+    transform: rotate(0) translateY(-3px);
+    border-color: #785044;
+}
+
+.clue-dossier-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #45515E;
+    color: #B8C1CB;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.clue-dossier-top i {
+    color: #D65A50;
+    font-size: 15px;
+}
+
+.clue-dossier-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 76px;
+    color: #D7B7A6;
+    font-size: 47px;
+}
+
+.clue-dossier-title small {
+    color: #D4775F;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+}
+
+.clue-dossier-title h3 {
+    color: #F0E8E0;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 4px 0 11px;
+}
+
+.clue-dossier-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.clue-dossier-lines span {
+    display: block;
+    height: 4px;
+    border-radius: 5px;
+    background: #43505D;
+}
+
+.clue-dossier-lines span:nth-child(1) {
+    width: 94%;
+}
+
+.clue-dossier-lines span:nth-child(2) {
+    width: 76%;
+}
+
+.clue-dossier-lines span:nth-child(3) {
+    width: 85%;
+}
+
+.clue-dossier-footer {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    padding-top: 9px;
+    border-top: 1px solid #45515E;
+    color: #B8C1CB;
+    font-size: 10px;
+}
+
+.clue-dossier-footer i {
+    color: var(--success-color);
+}
+
+.clue-dossier-stamp {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 5px 8px;
+    color: #E5A18C;
+    border: 1px solid #9D5847;
+    border-radius: 4px;
+    background: rgba(50, 29, 26, 0.9);
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transform: rotate(-5deg);
+}
+
+/* PROGRESS */
+
+.clue-page .clue-progress-card {
+    padding: 16px 20px !important;
+    margin-bottom: 18px !important;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+}
+
+.clue-progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.clue-section-label {
+    display: block;
+    color: var(--muted-color);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    margin-bottom: 5px;
+}
+
+.clue-progress-top h5 {
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.clue-page .clue-progress-card .progress {
+    height: 7px;
+    overflow: hidden;
+    background: #303844;
+    border-radius: 20px;
+}
+
+.clue-page .clue-progress-card .progress-bar {
+    background: var(--accent-color);
+    border-radius: 20px;
+    transition: width 0.3s ease;
+}
+
+/* MAIN EVIDENCE PANEL */
+
+.clue-page .clue-panel {
+    padding: 22px !important;
+    margin-bottom: 18px !important;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.clue-panel-heading {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.clue-panel-heading h3 {
+    color: var(--text-color);
+    font-size: 22px;
+}
+
+.clue-panel-heading .badge {
+    padding: 7px 10px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* Evidence visual redesigned as a meaningful two-part record. */
+
+.clue-page .evidence-visual {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    min-height: 170px;
+    height: auto;
+    padding: 20px !important;
+    margin-top: 0;
+    border: 1px solid #35414F;
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at 15% 50%, rgba(198, 40, 40, 0.12), transparent 37%),
+        linear-gradient(110deg, #202B38, #141C25);
+}
+
+.evidence-icon-area {
+    flex: 0 0 145px;
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: rgba(8, 13, 19, 0.35);
+    border: 1px solid #3B4856;
+    border-radius: 7px;
+}
+
+.clue-page #evidenceIcon {
+    color: #D6C4B7;
+    font-size: 49px !important;
+    transition: 0.25s ease;
+}
+
+.evidence-visual:hover #evidenceIcon {
+    color: #E05252;
+    transform: scale(1.08);
+}
+
+.evidence-icon-area span {
+    color: #AEB8C3;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.evidence-visual-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.evidence-visual-details > small {
+    color: #D4775F;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.evidence-visual-details h5 {
+    color: var(--text-color);
+    font-size: 19px;
+    font-weight: 700;
+    margin: 7px 0;
+}
+
+.evidence-visual-details p {
+    color: #C1C9D1;
+    font-size: 12px;
+}
+
+.evidence-visual-note {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 9px;
+    color: #B7C9A9;
+    background: rgba(34, 80, 51, 0.22);
+    border: 1px solid rgba(95, 142, 105, 0.35);
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+/* EVIDENCE RECORD AND OBSERVATIONS */
+
+.evidence-record {
+    padding: 2px 1px 13px;
+}
+
+.evidence-record h5 {
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.evidence-record h5 i {
+    color: var(--accent-hover);
+}
+
+.evidence-record p {
+    color: #B7C0CA;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.observation-card {
+    padding: 15px 16px;
+    background: #201B12;
+    border: 1px solid #5B481E;
+    border-radius: 7px;
+}
+
+.observation-card h6 {
+    color: #F2CE7B;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.observation-card h6 i {
+    color: #EABF62;
+}
+
+.observation-card p {
+    color: #D5C9B1;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.detailed-observation {
+    background: #20251D;
+    border-color: #536348;
+}
+
+.detailed-observation h6 {
+    color: #B7C9A9;
+}
+
+.detailed-observation h6 i {
+    color: var(--success-color);
+}
+
+.detailed-observation p {
+    color: #D0D9C8;
+}
+
+.clue-page #revealButton {
+    font-size: 12px;
+    padding: 9px 13px;
+    border-color: #9D4444;
+    transition: 0.2s ease;
+}
+
+.clue-page #revealButton:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.clue-page #revealButton:disabled {
+    opacity: 0.75;
+    cursor: default;
+    transform: none;
+}
+
+/* ANALYSIS WORKSPACE */
+
+.clue-page .clue-analysis-panel {
+    padding: 22px !important;
+    margin-bottom: 18px !important;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.clue-analysis-panel > h3 {
+    color: var(--text-color);
+    font-size: 22px;
+    margin: 7px 0 9px;
+}
+
+.clue-analysis-panel > p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.analysis-question-box {
+    padding: 14px 16px;
+    background: #202A35;
+    border: 1px solid #354352;
+    border-left: 3px solid var(--accent-color);
+    border-radius: 6px;
+}
+
+.analysis-question-box h5 {
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.analysis-question-box p {
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.clue-analysis-panel .deduction-option {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 15px !important;
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+    color: var(--text-color);
+    background: #10161E;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.clue-analysis-panel .deduction-option:hover {
+    background: #201719;
+    border-color: var(--accent-color) !important;
+    transform: translateX(3px);
+}
+
+.clue-analysis-panel .deduction-option input {
+    margin: 0;
+    accent-color: var(--accent-color);
+}
+
+.clue-analysis-panel .deduction-option strong {
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.clue-analysis-panel > button {
+    padding: 10px 17px;
+    font-size: 12px;
+    transition: 0.2s ease;
+}
+
+.clue-analysis-panel > button:hover {
+    transform: translateY(-2px);
+}
+
+/* Feedback is hidden until the player submits an analysis. */
+
+.clue-page .analysis-feedback {
+    padding: 15px;
+    background: #10251A;
+    border: 1px solid #315C3B;
+    border-radius: 7px;
+}
+
+.clue-page .analysis-feedback[hidden] {
+    display: none !important;
+}
+
+.analysis-feedback h5 {
+    color: var(--success-color);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.analysis-feedback p {
+    color: #D0D9D0;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.analysis-feedback hr {
+    border-color: #526353;
+    opacity: 0.7;
+}
+
+.analysis-feedback h6 {
+    color: #B7C9A9;
+    font-size: 12px;
+}
+
+/* NOTEBOOK */
+
+.clue-page .clue-notebook-card {
+    padding: 22px !important;
+    margin-bottom: 18px !important;
+    background:
+        linear-gradient(120deg, rgba(80, 60, 40, 0.12), transparent 55%),
+        var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+.notebook-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+}
+
+.notebook-heading h3 {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.notebook-heading h3 i {
+    color: var(--accent-hover);
+    margin-right: 7px;
+}
+
+.notebook-heading p {
+    color: var(--muted-color);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.notebook-decoration {
+    flex: 0 0 auto;
+    color: #78614D;
+    font-size: 35px;
+}
+
+.clue-page .clue-notebook-card textarea {
+    background: #10161E;
+    color: var(--text-color);
+    border: 1px solid #394451;
+    border-radius: 7px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.clue-page .clue-notebook-card textarea:focus {
+    background: #10161E;
+    color: var(--text-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.12);
+}
+
+.clue-page .clue-notebook-card textarea::placeholder {
+    color: #7F8995;
+}
+
+.clue-page .clue-notebook-card .btn {
+    font-size: 12px;
+    padding: 9px 14px;
+}
+
+#notesMessage {
+    font-size: 11px;
+}
+
+/* NAVIGATION */
+
+.clue-page .clue-navigation {
+    display: block;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
+}
+
+.clue-navigation-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.clue-navigation-actions {
+    display: flex;
+    gap: 9px;
+}
+
+.clue-page .clue-navigation .btn {
+    padding: 9px 14px;
+    font-size: 12px;
+    transition: 0.2s ease;
+}
+
+.clue-page .clue-navigation .btn:hover {
+    transform: translateY(-2px);
+}
+
+.clue-page .clue-navigation .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.clue-page .clue-navigation .btn-danger {
+    padding: 11px 18px;
+}
+
+/* FOOTER ON THIS PAGE */
+
+body:has(.clue-page) footer {
+    padding: 18px 12px;
+    border-top: 1px solid var(--border-color);
+    background: #10161D;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+    .clue-page {
+        padding: 24px 18px 42px !important;
+    }
+
+    .clue-hero {
+        gap: 18px;
+        padding: 22px !important;
+    }
+
+    .clue-hero-visual {
+        flex-basis: 280px;
+    }
+}
+
+@media (max-width: 767px) {
+    .clue-page {
+        padding: 18px 14px 36px !important;
+    }
+
+    .clue-hero {
+        flex-direction: column;
+        padding: 19px !important;
+    }
+
+    .clue-hero-content {
+        flex-basis: auto;
+    }
+
+    .clue-hero-content h1 {
+        font-size: 29px;
+    }
+
+    .clue-hero-visual {
+        width: 100%;
+        min-width: 0;
+        min-height: 195px;
+        flex-basis: auto;
+    }
+
+    .clue-page .clue-progress-card,
+    .clue-page .clue-panel,
+    .clue-page .clue-analysis-panel,
+    .clue-page .clue-notebook-card {
+        padding: 17px !important;
+    }
+
+    .clue-page .evidence-visual {
+        min-height: 0;
+        align-items: stretch;
+        gap: 14px;
+        padding: 14px !important;
+    }
+
+    .evidence-icon-area {
+        flex-basis: 110px;
+        min-height: 115px;
+    }
+
+    .clue-page #evidenceIcon {
+        font-size: 39px !important;
+    }
+
+    .evidence-visual-details h5 {
+        font-size: 16px;
+    }
+
+    .clue-navigation-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .clue-navigation-actions {
+        width: 100%;
+    }
+
+    .clue-navigation-actions button {
+        flex: 1;
+    }
+
+    .clue-navigation-row > a {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .clue-hero-content h1 {
+        font-size: 25px;
+    }
+
+    .clue-hero-facts {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .clue-page .evidence-visual {
+        flex-direction: column;
+    }
+
+    .evidence-icon-area {
+        flex-basis: auto;
+        min-height: 105px;
+    }
+
+    .clue-progress-top {
+        align-items: flex-start;
+    }
+
+    .clue-progress-top h5 {
+        font-size: 13px;
+    }
+
+    .notebook-heading {
+        align-items: flex-start;
+    }
+
+    .notebook-decoration {
+        font-size: 25px;
+    }
+}

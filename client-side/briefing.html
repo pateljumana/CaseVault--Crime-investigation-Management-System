@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Case Briefing | CaseVault</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+
+            <a class="navbar-brand" href="home.html">
+                <span class="brand-icon">
+                    <i class="bi bi-shield-lock-fill"></i>
+                </span>
+                CaseVault
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html#cases">Explore Cases</a>
+                    </li>
+
+
+                    <li class="nav-item ms-lg-3">
+                        <a href="login.html" class="btn btn-outline-light login-btn">
+                            Login
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Case Header -->
+
+    <section class="briefing-header">
+
+        <div class="container">
+
+            <a href="home.html#cases" class="back-link">
+                <i class="bi bi-arrow-left"></i> Back to Cases
+            </a>
+
+            <span class="section-label" id="caseId">INVESTIGATION FILE</span>
+
+            <h1 id="caseTitle">Loading Case...</h1>
+
+            <p id="caseDescription"></p>
+
+            <div class="briefing-tags">
+                <span class="case-tag" id="caseStatus">UNSOLVED</span>
+                <span class="difficulty-badge medium-badge" id="caseDifficulty">Medium</span>
+                <span class="case-tag" id="caseType">CASE TYPE</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Case Details -->
+
+    <section class="briefing-section">
+
+        <div class="container">
+
+            <div class="row g-4">
+
+                <!-- Main Content -->
+
+                <div class="col-lg-8">
+
+                    <div class="briefing-card">
+
+                        <h3><i class="bi bi-file-earmark-text"></i> Case Overview</h3>
+
+                        <p id="caseOverview"></p>
+
+                    </div>
+
+
+                    <div class="briefing-card">
+
+                        <h3><i class="bi bi-geo-alt"></i> Crime Scene</h3>
+
+                        <div class="crime-scene">
+
+                            <i class="bi bi-building"></i>
+
+                            <div>
+                                <h4 id="crimeLocation"></h4>
+                                <p id="crimeAddress"></p>
+                                <span id="crimeTime"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="briefing-card">
+
+                        <h3><i class="bi bi-person"></i> Victim Information</h3>
+
+                        <div class="person-details">
+
+                            <div class="person-icon">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+
+                            <div>
+                                <h4 id="victimName"></h4>
+                                <p id="victimRole"></p>
+                                <p id="victimDescription"></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="briefing-card">
+
+                        <h3><i class="bi bi-people"></i> Suspects</h3>
+
+                        <div class="row g-3" id="suspectsContainer"></div>
+
+                    </div>
+
+
+                    <div class="briefing-card">
+
+                        <h3><i class="bi bi-chat-left-text"></i> Witnesses</h3>
+
+                        <div id="witnessesContainer"></div>
+
+                    </div>
+
+
+                    <div class="briefing-card">
+
+                        <h3><i class="bi bi-search"></i> Initial Evidence</h3>
+
+                        <div id="evidenceContainer"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Sidebar -->
+
+                <div class="col-lg-4">
+
+                    <div class="briefing-sidebar">
+
+                        <span class="section-label">CASE DETAILS</span>
+
+                        <h4>Investigation Summary</h4>
+
+                        <div class="summary-item">
+                            <span>Case ID</span>
+                            <strong id="summaryId"></strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Crime Type</span>
+                            <strong id="summaryType"></strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Difficulty</span>
+                            <strong id="summaryDifficulty"></strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Suspects</span>
+                            <strong id="summarySuspects"></strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Witnesses</span>
+                            <strong id="summaryWitnesses"></strong>
+                        </div>
+
+                        <div class="summary-item">
+                            <span>Evidence Items</span>
+                            <strong id="summaryEvidence"></strong>
+                        </div>
+
+                        <hr>
+
+                        <h5>Investigation Objective</h5>
+
+                        <p id="caseObjective"></p>
+
+                        <a href="#" id="beginButton" class="btn btn-danger main-btn begin-btn">
+                            Begin Investigation
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                        <p class="sidebar-note">
+                            <i class="bi bi-info-circle"></i>
+                            Review the case information before proceeding.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        /* Case information */
+
+
+        const cases = {
+
+            "CV-001": {
+                id: "CV-001",
+                title: "The Midnight Apartment",
+                type: "Document Theft",
+                difficulty: "Medium",
+
+                description: "A suspicious incident involving an important folder inside a residential apartment.",
+
+                overview: "An important original folder connected to a revised agreement became the center of a late-night dispute. Emily Brooks claims she left before the planned 11 PM discussion. However, the visitor register contains no departure time, and Michael Reed remembers seeing someone carrying a folder around 10:55 PM. The hallway clock stopped at 10:48 PM, but its battery was loose. Compare the records and statements to determine whose timeline is unreliable.",
+
+                location: "Apartment 302",
+                address: "Rosewood Residential Complex, Building B",
+                time: "Planned discussion: 11:00 PM",
+
+                victim: "Adrian Mitchell",
+                victimRole: "Apartment Owner",
+                victimDescription: "Was involved in a disagreement concerning an original folder and a revised agreement.",
+
+                suspects: [
+                    {
+                        name: "Daniel Carter",
+                        role: "Neighbor",
+                        detail: "Claims he was watching television in his apartment."
+                    },
+                    {
+                        name: "Emily Brooks",
+                        role: "Colleague",
+                        detail: "Claims she left before 11 PM. She was involved in the document disagreement."
+                    },
+                    {
+                        name: "Michael Reed",
+                        role: "Friend",
+                        detail: "Claims he was waiting outside and saw someone carrying a folder."
+                    }
+                ],
+
+                witnesses: [
+                    {
+                        name: "Building Receptionist",
+                        detail: "Recorded Emily Brooks entering the building at 10:35 PM, but no departure time was recorded."
+                    },
+                    {
+                        name: "Michael Reed",
+                        detail: "Reported seeing someone carrying a folder around 10:55 PM."
+                    }
+                ],
+
+                evidence: [
+                    {
+                        name: "Hallway Clock",
+                        detail: "The clock stopped at 10:48 PM, but its battery was loose, making the time unreliable.",
+                        icon: "bi-clock"
+                    },
+                    {
+                        name: "Visitor Register",
+                        detail: "Emily Brooks entered at 10:35 PM. The departure column is blank.",
+                        icon: "bi-journal-text"
+                    },
+                    {
+                        name: "Torn Meeting Note",
+                        detail: "A note mentions an 11 PM discussion and asks someone to bring the original folder.",
+                        icon: "bi-file-earmark-text"
+                    }
+                ],
+
+                objective: "Compare the visitor record, meeting note, and suspect statements to identify whose timeline does not add up."
+            },
+
+
+            "CV-002": {
+                id: "CV-002",
+                title: "The Phantom Heist",
+                type: "Museum Robbery",
+                difficulty: "Hard",
+
+                description: "A valuable museum artifact disappeared during a brief security interruption.",
+
+                overview: "A valuable item was stolen from the City Museum during a security problem. The display case was opened without breaking it. The alarm stopped working from 9:42 PM to 9:49 PM, and the case was opened at 9:45 PM using technician ID TECH-02. Ethan Cole was working near the network cabinet at that time. Check the access records and suspects’ answers to find out who used the technician ID.",
+
+                location: "City Museum",
+                address: "Central Exhibition Hall",
+                time: "Incident time: approximately 9:45 PM",
+
+                victim: "Museum Administration",
+                victimRole: "Owner of the Artifact",
+                victimDescription: "Reported the disappearance of a valuable artifact from the museum display.",
+
+                suspects: [
+                    {
+                        name: "Oliver Grant",
+                        role: "Security Officer",
+                        detail: "Claims he was monitoring the east corridor."
+                    },
+                    {
+                        name: "Sophia Lane",
+                        role: "Museum Curator",
+                        detail: "Claims she was reviewing the exhibition schedule in her office."
+                    },
+                    {
+                        name: "Ethan Cole",
+                        role: "Technician",
+                        detail: "Claims he was checking the network cabinet during a routine system restart."
+                    }
+                ],
+
+                witnesses: [
+                    {
+                        name: "Night Guard",
+                        detail: "Reported that the alarm stopped transmitting and later resumed."
+                    },
+                    {
+                        name: "Museum Staff",
+                        detail: "Confirmed that maintenance activity was taking place near the security system."
+                    }
+                ],
+
+                evidence: [
+                    {
+                        name: "Alarm Console",
+                        detail: "The alarm stopped transmitting from 9:42 PM to 9:49 PM.",
+                        icon: "bi-alarm"
+                    },
+                    {
+                        name: "Display Case",
+                        detail: "The electronic lock recorded an opening at 9:45 PM using credential TECH-02.",
+                        icon: "bi-lock"
+                    },
+                    {
+                        name: "Maintenance Log",
+                        detail: "Ethan Cole was recorded checking the network cabinet at 9:40 PM.",
+                        icon: "bi-tools"
+                    }
+                ],
+
+                objective: "Compare the alarm interruption, electronic lock record, and maintenance log to identify who accessed the display case."
+            },
+
+
+            "CV-003": {
+                id: "CV-003",
+                title: "The Missing Fortune",
+                type: "Financial Theft",
+                difficulty: "Medium",
+
+                description: "A financial envelope disappeared from an office during a busy afternoon.",
+
+                overview: "A financial envelope arrived at an office at 2:20 PM and later disappeared. Grace Miller claims she left at 2:00 PM, before the delivery. However, the finance cabinet key was issued under her name at 2:18 PM, and a ledger correction was recorded using her finance account at 2:27 PM. Lucas White says he was in a meeting, while courier Noah Scott recalls delivering the envelope to someone wearing a finance badge. Compare the delivery, key register, and ledger records.",
+
+                location: "Meridian Business Office",
+                address: "Financial District, Block C",
+                time: "Incident period: 2:18 PM–2:27 PM",
+
+                victim: "Robert Hayes",
+                victimRole: "Business Owner",
+                victimDescription: "Reported the disappearance of a financial envelope from the office.",
+
+                suspects: [
+                    {
+                        name: "Lucas White",
+                        role: "Office Manager",
+                        detail: "Claims he was in a meeting from 2:15 PM to 2:30 PM."
+                    },
+                    {
+                        name: "Grace Miller",
+                        role: "Accountant",
+                        detail: "Claims she left at 2:00 PM after completing reconciliation work."
+                    },
+                    {
+                        name: "Noah Scott",
+                        role: "Courier",
+                        detail: "Claims he delivered the envelope around 2:20 PM."
+                    }
+                ],
+
+                witnesses: [
+                    {
+                        name: "Office Receptionist",
+                        detail: "Confirmed that the envelope was delivered at approximately 2:20 PM."
+                    },
+                    {
+                        name: "Courier Noah Scott",
+                        detail: "Remembered handing the envelope to someone wearing a finance department badge."
+                    }
+                ],
+
+                evidence: [
+                    {
+                        name: "Delivery Receipt",
+                        detail: "The envelope arrived at 2:20 PM. The receipt contains an abbreviated signature.",
+                        icon: "bi-receipt"
+                    },
+                    {
+                        name: "Office Ledger",
+                        detail: "A financial correction was recorded at 2:27 PM using Grace Miller's finance account.",
+                        icon: "bi-journal-text"
+                    },
+                    {
+                        name: "Key Register",
+                        detail: "The finance cabinet key was issued under Grace Miller's name at 2:18 PM. No return was recorded.",
+                        icon: "bi-key"
+                    }
+                ],
+
+                objective: "Compare the delivery receipt, finance account activity, and key register to identify whose timeline contradicts the records."
+            }
+
+        };
+
+        /* Get selected case from URL */
+
+        const params = new URLSearchParams(window.location.search);
+        const caseId = params.get("case") || "CV-001";
+        const selectedCase = cases[caseId];
+
+
+        /* Display selected case */
+
+        if (selectedCase) {
+
+            document.getElementById("caseId").textContent =
+                "INVESTIGATION FILE / " + selectedCase.id;
+
+            document.getElementById("caseTitle").textContent =
+                selectedCase.title;
+
+            document.getElementById("caseDescription").textContent =
+                selectedCase.description;
+
+            document.getElementById("caseType").textContent =
+                selectedCase.type.toUpperCase();
+
+            document.getElementById("caseDifficulty").textContent =
+                selectedCase.difficulty;
+
+            document.getElementById("caseOverview").textContent =
+                selectedCase.overview;
+
+            document.getElementById("crimeLocation").textContent =
+                selectedCase.location;
+
+            document.getElementById("crimeAddress").textContent =
+                selectedCase.address;
+
+            document.getElementById("crimeTime").textContent =
+                selectedCase.time;
+
+            document.getElementById("victimName").textContent =
+                selectedCase.victim;
+
+            document.getElementById("victimRole").textContent =
+                selectedCase.victimRole;
+
+            document.getElementById("victimDescription").textContent =
+                selectedCase.victimDescription;
+
+
+            /* Suspects */
+
+            let suspectsHTML = "";
+
+            selectedCase.suspects.forEach(function (suspect) {
+
+                suspectsHTML += `
+            <div class="col-md-4">
+                <div class="suspect-card">
+
+                    <i class="bi bi-person-circle"></i>
+
+                    <h5>${suspect.name}</h5>
+
+                    <p>${suspect.role}</p>
+
+                    <span>${suspect.detail}</span>
+
+                </div>
+            </div>
+        `;
+
+            });
+
+            document.getElementById("suspectsContainer").innerHTML =
+                suspectsHTML;
+
+
+            /* Witnesses */
+
+            let witnessesHTML = "";
+
+            selectedCase.witnesses.forEach(function (witness) {
+
+                witnessesHTML += `
+            <div class="witness-item">
+
+                <strong>${witness.name}</strong>
+
+                <p>${witness.detail}</p>
+
+            </div>
+        `;
+
+            });
+
+            document.getElementById("witnessesContainer").innerHTML =
+                witnessesHTML;
+
+
+            /* Evidence */
+
+            let evidenceHTML = "";
+
+            selectedCase.evidence.forEach(function (item) {
+
+                evidenceHTML += `
+            <div class="evidence-item">
+
+                <i class="bi ${item.icon}"></i>
+
+                <div>
+                    <h5>${item.name}</h5>
+                    <p>${item.detail}</p>
+                </div>
+
+            </div>
+        `;
+
+            });
+
+            document.getElementById("evidenceContainer").innerHTML =
+                evidenceHTML;
+
+
+            /* Sidebar */
+
+            document.getElementById("summaryId").textContent =
+                selectedCase.id;
+
+            document.getElementById("summaryType").textContent =
+                selectedCase.type;
+
+            document.getElementById("summaryDifficulty").textContent =
+                selectedCase.difficulty;
+
+            document.getElementById("summarySuspects").textContent =
+                selectedCase.suspects.length;
+
+            document.getElementById("summaryWitnesses").textContent =
+                selectedCase.witnesses.length;
+
+            document.getElementById("summaryEvidence").textContent =
+                selectedCase.evidence.length;
+
+            document.getElementById("caseObjective").textContent =
+                selectedCase.objective;
+
+            document.getElementById("beginButton").href =
+                "investigation.html?case=" + selectedCase.id;
+
+        } else {
+
+            document.getElementById("caseTitle").textContent =
+                "Case Not Found";
+
+            document.getElementById("caseDescription").textContent =
+                "The selected case does not exist.";
+
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

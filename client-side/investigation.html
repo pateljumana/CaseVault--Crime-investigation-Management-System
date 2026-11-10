@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaseVault | Investigation</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg casevault-navbar sticky-top">
+
+        <div class="container-fluid px-3">
+
+            <a class="navbar-brand casevault-brand" href="home.html">
+                <i class="bi bi-shield-lock-fill"></i>
+                <span>CaseVault</span>
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#casevaultNavbar"
+                    aria-controls="casevaultNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="casevaultNavbar">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html#cases">Explore Cases</a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+                        <a class="nav-link login-nav-btn" href="login.html">Login</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <div class="page-container">
+
+        <!-- CASE HEADER -->
+        <div class="case-header">
+
+            <div>
+                <div class="case-tag" id="caseTag">CASE #CV-001</div>
+
+                <h1 id="caseTitle">The Midnight Apartment</h1>
+
+                <p class="muted mb-0" id="caseDescription">
+                    Explore the crime scene, gather clues and find the truth.
+                </p>
+            </div>
+
+            <div class="progress-area">
+
+                <div class="d-flex justify-content-between mb-2">
+                    <strong>Investigation Progress</strong>
+                    <span id="progressText">0%</span>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar" id="progressBar" style="width:0%"></div>
+                </div>
+
+                <small class="muted" id="progressDetails">
+                    0 of 4 tasks completed
+                </small>
+
+            </div>
+
+            <div class="status">● Investigation Active</div>
+
+        </div>
+
+
+        <!-- MAIN INVESTIGATION LAYOUT -->
+        <div class="main-layout">
+
+            <!-- CRIME SCENE -->
+            <section class="panel">
+
+                <div class="panel-title">🔎 Crime Scene</div>
+
+                <div class="section-subtitle">
+                    Inspect objects carefully. Some details may matter later.
+                </div>
+
+                <div class="scene" id="scene">
+
+                    <div class="scene-floor"></div>
+
+                    <div class="scene-label" style="top:12px;left:12px;">
+                        Crime Scene
+                    </div>
+
+                    <button class="scene-object"
+                            id="object0"
+                            style="left:18%;top:40%;"
+                            onclick="inspectEvidence(0)">?</button>
+
+                    <button class="scene-object"
+                            id="object1"
+                            style="left:48%;top:55%;"
+                            onclick="inspectEvidence(1)">?</button>
+
+                    <button class="scene-object"
+                            id="object2"
+                            style="left:75%;top:35%;"
+                            onclick="inspectEvidence(2)">?</button>
+
+                    <span class="scene-label" style="left:15%;bottom:12%;">
+                        Object A
+                    </span>
+
+                    <span class="scene-label" style="left:45%;bottom:12%;">
+                        Object B
+                    </span>
+
+                    <span class="scene-label" style="left:72%;bottom:12%;">
+                        Object C
+                    </span>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+
+                    <strong>📁 Your Findings</strong>
+
+                    <small class="muted" id="evidenceCount">
+                        0 / 3 discovered
+                    </small>
+
+                </div>
+
+                <div class="evidence-list" id="evidenceList"></div>
+
+                <button class="btn btn-outline-secondary btn-sm mt-3"
+                        onclick="showAllEvidence()">
+                    Review discovered evidence
+                </button>
+
+            </section>
+
+
+            <!-- QUESTION SUSPECTS -->
+            <section class="panel">
+
+                <div class="panel-title">💬 Question Suspects</div>
+
+                <div class="section-subtitle">
+                    Ask questions and compare their accounts.
+                </div>
+
+                <div class="suspect-buttons" id="suspectButtons"></div>
+
+                <label class="form-label">Choose a question:</label>
+
+                <select class="form-select" id="questionSelect">
+
+                    <option value="where">
+                        Where were you at the time?
+                    </option>
+
+                    <option value="heard">
+                        Did you hear or notice anything?
+                    </option>
+
+                    <option value="relationship">
+                        What was your relationship with the victim?
+                    </option>
+
+                    <option value="detail">
+                        Can you explain this detail?
+                    </option>
+
+                </select>
+
+                <button class="btn-red w-100 mt-3" onclick="askQuestion()">
+                    Ask Question
+                </button>
+
+                <div class="dialogue" id="dialogue">
+
+                    <div class="muted">
+                        Select a suspect and ask your first question.
+                    </div>
+
+                </div>
+
+                <button class="btn btn-outline-warning btn-sm mt-3"
+                        onclick="getHint()">
+                    💡 Request a hint
+                </button>
+
+                <div class="hint-box" id="hintBox"></div>
+
+            </section>
+
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+
+                <!-- SUSPECT PROFILES -->
+                <section class="panel">
+
+                    <div class="panel-title">👥 Suspect Profiles</div>
+
+                    <div class="section-subtitle">
+                        People connected to the case
+                    </div>
+
+                    <div id="suspectProfiles"></div>
+
+                </section>
+
+            </aside>
+
+
+            <!-- DETECTIVE NOTEBOOK: MOVED OUTSIDE SIDEBAR -->
+            <section class="panel notebook notebook-wide">
+
+                <div class="panel-title">📒 Detective Notebook</div>
+
+                <div class="section-subtitle">
+                    Record your own observations.
+                </div>
+
+                <textarea class="form-control"
+                          id="notes"
+                          placeholder="Write your thoughts, timelines and suspicions..."></textarea>
+
+                <button class="btn-red btn-sm mt-3" onclick="saveNotes()">
+                    Save Notes
+                </button>
+
+                <span id="notesStatus" class="muted ms-2"></span>
+
+            </section>
+
+        </div>
+
+
+        <!-- CONNECT CLUES -->
+        <section class="panel deduction-panel">
+
+            <div class="panel-title">🧩 Connect the Clues</div>
+
+            <div class="section-subtitle">
+                Choose two discovered clues. Think about how they relate.
+            </div>
+
+            <div class="clue-connect">
+
+                <select class="clue-select" id="clueOne">
+                    <option value="">Select first clue</option>
+                </select>
+
+                <div class="plus">+</div>
+
+                <select class="clue-select" id="clueTwo">
+                    <option value="">Select second clue</option>
+                </select>
+
+            </div>
+
+            <button class="btn-red mt-3" onclick="connectClues()">
+                Make Connection
+            </button>
+
+            <div class="deduction-result" id="deductionResult"></div>
+
+        </section>
+
+
+        <!-- FINAL ACCUSATION -->
+        <section class="panel accusation">
+
+            <div class="panel-title">⚖ Final Accusation</div>
+
+            <div class="section-subtitle">
+                Review your findings before accusing someone.
+            </div>
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-6">
+
+                    <label class="form-label">Who do you accuse?</label>
+
+                    <select class="form-select" id="accused">
+
+                        <option value="">Select a suspect</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <label class="form-label">Your reasoning</label>
+
+                    <input class="form-control"
+                           id="reasoning"
+                           placeholder="Explain which clues support your theory">
+
+                </div>
+
+            </div>
+
+            <button class="btn-red mt-3" onclick="submitAccusation()">
+                Submit Accusation
+            </button>
+
+            <div class="feedback" id="accusationFeedback"></div>
+
+        </section>
+
+    </div>
+
+
+    <footer>
+        CaseVault — Every detail matters. Every truth has a story.
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        /* =====================================================
+           CASE DATA
+           ===================================================== */
+
+        const cases = {
+
+            "CV-001": {
+                title: "The Midnight Apartment",
+                description: "A late-night incident. Three people have reasons to hide something.",
+                culprit: "emily",
+
+                solutionDetails:
+                    "Emily claimed she left before 11 PM. The visitor register confirms she arrived at 10:35 PM but contains no departure time. The meeting note shows that a discussion involving the original folder was planned for 11 PM. Michael saw someone carrying a folder around 10:55 PM, and Daniel heard the hallway door around the same period. The clock cannot be trusted because its battery was loose. Emily's claim that she had already left conflicts with the combined timeline. The evidence supports her presence after her claimed departure.",
+
+                suspects: [
+                    {
+                        id: "daniel",
+                        name: "Daniel Carter",
+                        role: "Neighbor",
+                        motive: "A long-running argument over noise",
+                        alibi: "He says he was in his apartment",
+                        answers: {
+                            where: "I was watching television at home. The program ended around eleven. I remember hearing the closing music.",
+                            heard: "I heard a door close in the hallway shortly before eleven. I assumed someone was returning home.",
+                            relationship: "We had arguments over noise, but I had no involvement in the documents.",
+                            detail: "The hallway lighting was unreliable. I could hear people, but I couldn't identify anyone from inside my apartment."
+                        }
+                    },
+                    {
+                        id: "emily",
+                        name: "Emily Brooks",
+                        role: "Colleague",
+                        motive: "A disagreement involving important documents",
+                        alibi: "She claims she left before the incident",
+                        answers: {
+                            where: "I left before eleven. I don't remember the exact minute, but I definitely wasn't there at the time of the incident.",
+                            heard: "I didn't hear anything unusual. I was already away from the apartment.",
+                            relationship: "We worked together. We had a disagreement about a revised agreement, but it was a work matter.",
+                            detail: "The original folder was important, but I had no reason to return after leaving."
+                        }
+                    },
+                    {
+                        id: "michael",
+                        name: "Michael Reed",
+                        role: "Friend",
+                        motive: "A personal debt",
+                        alibi: "He says he was waiting outside",
+                        answers: {
+                            where: "I was outside waiting for a call. I never went inside.",
+                            heard: "I saw someone leave around 10:55 carrying a folder. I couldn't see their face clearly.",
+                            relationship: "We were friends, although things had become awkward recently.",
+                            detail: "The folder looked like the one used for the revised agreement. I didn't see what was inside."
+                        }
+                    }
+                ],
+
+                evidence: [
+                    {
+                        name: "Hallway Clock",
+                        icon: "🕒",
+                        description: "The clock stopped at 10:48 PM, but its battery was loose.",
+                        detail:
+                            "The hallway clock stopped at 10:48 PM. A maintenance note confirms that its battery had been loose for several days. The time may be close to the incident, but it cannot be treated as reliable. Build your timeline using records that were created independently.",
+                        hint: "The clock gives you a possible time, not a reliable one."
+                    },
+                    {
+                        name: "Visitor Register",
+                        icon: "📋",
+                        description: "An entry was recorded at 10:35 PM, but the departure column is blank.",
+                        detail:
+                            "The register confirms Emily Brooks entered the building at 10:35 PM. However, the departure column is empty, and the receptionist cannot confirm when she left. The record establishes her arrival, but leaves an important gap in the timeline.",
+                        hint: "An arrival record does not automatically confirm a departure."
+                    },
+                    {
+                        name: "Torn Meeting Note",
+                        icon: "📄",
+                        description: "A note mentions an 11 PM discussion involving the original folder.",
+                        detail:
+                                "The note reads: '11:00 PM — revised agreement. Bring the original folder.' It was found beside the victim's desk. The receptionist confirms that Emily was expected to attend the discussion. Compare this with Emily's claim that she had already left and Michael's account of someone carrying a folder.",
+                        hint: "The note establishes a planned meeting. Find out whether anyone's account rules out their presence."
+                    }
+                ],
+
+                deductions: {
+                    "0-1":
+                        "The clock cannot confirm the exact time, but the register establishes that Emily entered at 10:35 PM. Since no departure was recorded, the clock cannot be used to prove she had already left.",
+
+                    "0-2":
+                        "The meeting was planned for 11 PM, close to the clock's unreliable time. The note is stronger evidence of a planned event than the stopped clock is of when the incident occurred.",
+
+                    "1-2":
+                        "Emily entered before the planned discussion, but the register does not establish when she left. The meeting note gives a possible reason for someone connected to the agreement to remain in the building."
+                },
+
+                hints: [
+                    "The hallway clock may be misleading. Find another record that establishes when someone entered the building.",
+                    "The visitor register confirms an arrival, but look carefully at what is missing from the same record.",
+                    "Compare the missing departure time with the planned 11 PM discussion and Michael's account of the folder. Whose timeline depends on an event that has not been independently confirmed?"
+                ],
+
+                solution: "Emily Brooks"
+            },
+
+
+            "CV-002": {
+                title: "The Phantom Heist",
+                description: "A valuable museum artifact disappeared during a brief security disruption.",
+                culprit: "ethan",
+
+                solutionDetails:
+                    "A valuable artifact(item) was stolen from the City Museum during a security problem. The display case was opened without breaking it. The alarm stopped working from 9:42 PM to 9:49 PM, and the case was opened at 9:45 PM using technician ID TECH-02. Ethan Cole was working near the network cabinet at that time. Check the access records and suspects’ answers to find out who used the technician ID",
+
+                suspects: [
+                    {
+                        id: "oliver",
+                        name: "Oliver Grant",
+                        role: "Security Officer",
+                        motive: "Financial pressure",
+                        alibi: "He claims he was monitoring the east corridor",
+                        answers: {
+                            where: "I was assigned to the east corridor. That was my post for the shift.",
+                            heard: "The alarm stopped transmitting, then came back. I reported the interruption after it resumed.",
+                            relationship: "I was responsible for protecting the collection. I had no reason to steal it.",
+                            detail: "I can access the security console, but I don't have the technician credential used for equipment maintenance."
+                        }
+                    },
+                    {
+                        id: "sophia",
+                        name: "Sophia Lane",
+                        role: "Museum Curator",
+                        motive: "Pressure over the museum's finances",
+                        alibi: "She says she was in her office",
+                        answers: {
+                            where: "I was in my office reviewing tomorrow's exhibition schedule.",
+                            heard: "I heard the alarm stop. I expected security to handle it.",
+                            relationship: "The artifact was part of my collection. Its disappearance is devastating.",
+                            detail: "I can authorize access to the collection, but I don't operate the alarm maintenance system."
+                        }
+                    },
+                    {
+                        id: "ethan",
+                        name: "Ethan Cole",
+                        role: "Technician",
+                        motive: "A contract dispute",
+                        alibi: "He says he was checking network equipment",
+                        answers: {
+                            where: "I was checking the network cabinet. The alarm system needed a routine restart.",
+                            heard: "I heard people moving around, but the system was already being checked.",
+                            relationship: "I maintained the museum's equipment. I had access for work purposes.",
+                            detail: "I only checked the network cabinet. I didn't open the display case. The interruption was a routine restart."
+                        }
+                    }
+                ],
+
+                evidence: [
+                    {
+                        name: "Alarm Console",
+                        icon: "🚨",
+                        description: "The alarm stopped transmitting from 9:42 to 9:49 PM.",
+                        detail:
+                            "The alarm stopped transmitting at 9:42 PM and resumed at 9:49 PM. The system classified the interruption as maintenance activity rather than a random sensor failure. The outage created a window in which security monitoring was reduced, but the console does not identify who initiated it.",
+                        hint: "The interruption was recorded as maintenance. Find out what else happened during that interval."
+                    },
+                    {
+                        name: "Display Case",
+                        icon: "🗃️",
+                        description: "The case was opened electronically during the alarm interruption.",
+                        detail:
+                            "The display case shows no signs of forced entry. Its electronic lock recorded an opening at 9:45 PM using credential TECH-02. The access record identifies the credential, but does not establish who physically used it. The opening occurred while the alarm was interrupted.",
+                        hint: "The case was opened electronically. Find out who could use the recorded credential."
+                    },
+                    {
+                        name: "Maintenance Log",
+                        icon: "🛠️",
+                        description: "A network check began shortly before the alarm interruption.",
+                        detail:
+                            "The maintenance log confirms that TECH-02 was assigned to Ethan Cole for that shift. No other technician was authorized to use it.",
+
+                        hint: "Being near the system explains opportunity, but not necessarily what happened."
+                    }
+                ],
+
+                deductions: {
+                    "0-1":
+                        "The alarm interruption and display-case opening overlap. The case was opened electronically during a period when security monitoring was reduced, suggesting the two events may be connected.",
+
+                    "0-2":
+                        "The maintenance activity began just before the alarm interruption. This timing could be routine, but it also raises the question of whether the interruption was connected to the technician's work.",
+
+                    "1-2":
+                        "The display case was opened using TECH-02, while the maintenance log places Ethan near the system. His statement that he only checked the network cabinet should be compared with the electronic access record."
+                },
+
+                hints: [
+                    "The display case was not forced open. Think about what kind of access would leave the lock undamaged.",
+                    "The alarm outage and the display-case opening happened within the same short period. Compare their timestamps.",
+                    "A technician was working nearby, but the maintenance log does not list a display-case inspection. Compare that statement with the credential recorded by the case lock."
+                ],
+
+                solution: "Ethan Cole"
+            },
+
+
+            "CV-003": {
+                title: "The Missing Fortune",
+                description: "A financial envelope vanished from an office during a busy afternoon.",
+                culprit: "grace",
+
+                solutionDetails:
+                    "Grace claimed she left at 2:00 PM, before the envelope arrived. However, the delivery receipt at 2:20 PM carries the same distinctive initials and signature pattern as her finance records. The key register shows the finance cabinet key was issued to Grace at 2:18 PM and never returned. The ledger was then corrected at 2:27 PM using Grace's finance login. Lucas was in a meeting during the delivery, and Noah was the courier, not the person who accessed the cabinet. These records contradict Grace's claim that she had left and connect her to the envelope and cabinet activity.",
+
+                suspects: [
+                    {
+                        id: "lucas",
+                        name: "Lucas White",
+                        role: "Office Manager",
+                        motive: "A dispute over company expenses",
+                        alibi: "He says he was in a meeting",
+                        answers: {
+                            where: "I was in the meeting room from 2:15 to 2:30 PM. The meeting minutes confirm that.",
+                            heard: "I heard the courier arrive, but I didn't leave the meeting.",
+                            relationship: "I managed the office. Everyone had access to the general reception area.",
+                            detail: "The finance cabinet was not part of my routine work. I did not use the finance team's login."
+                        }
+                    },
+                    {
+                        id: "grace",
+                        name: "Grace Miller",
+                        role: "Accountant",
+                        motive: "An unexplained financial discrepancy",
+                        alibi: "She says she left before the envelope arrived",
+                        answers: {
+                            where: "I left around 2:00 PM. I had finished the reconciliation work.",
+                            heard: "I didn't see the courier. I was already away from the office.",
+                            relationship: "I handled the accounts, but I had no reason to take anything.",
+                            detail: "The ledger was already balanced when I left. Any later changes were not mine."
+                        }
+                    },
+                    {
+                        id: "noah",
+                        name: "Noah Scott",
+                        role: "Courier",
+                        motive: "A delivery payment dispute",
+                        alibi: "He claims he delivered the envelope directly",
+                        answers: {
+                            where: "I delivered it around 2:20 PM. I waited for someone to acknowledge receipt.",
+                            heard: "The office was busy. I heard people discussing a meeting.",
+                            relationship: "I only deliver documents. I don't know what's inside them.",
+                            detail: "I handed the envelope to someone near reception. I remember the person had a finance department badge, but I cannot confidently identify them."
+                        }
+                    }
+                ],
+
+                evidence: [
+                    {
+                        name: "Delivery Receipt",
+                        icon: "📦",
+                        description: "The envelope arrived at 2:20 PM. The receipt carries an abbreviated signature.",
+                        detail:
+                            "The receipt confirms delivery at 2:20 PM. The signature is abbreviated and includes the initial 'G'. The courier recalls handing the envelope to someone wearing a finance department badge, but cannot confidently identify the person. Grace claims she left at 2:00 PM. The receipt raises a question about that timeline, but the signature alone is not conclusive.",
+                        hint: "The delivery time is important. Compare it with the departure time given by the suspects."
+                    },
+                    {
+                        name: "Office Ledger",
+                        icon: "📒",
+                        description: "A financial entry was corrected at 2:27 PM using a finance account.",
+                        detail:
+                            "The ledger shows a correction at 2:27 PM using Grace Miller's finance account. The account was normally used for reconciliation work, and the correction follows the team's standard notation. An account can sometimes remain open or be used by another person, so this record should be compared with the physical access evidence.",
+                        hint: "An account record shows activity, but consider whether it proves who was physically present."
+                    },
+                    {
+                        name: "Key Register",
+                        icon: "🔑",
+                        description: "The finance cabinet key was issued at 2:18 PM and has no recorded return.",
+                        detail:
+                            "The finance cabinet key was checked out under Grace Miller's name at 2:18 PM. The return field is blank, and the cabinet was accessed at 2:25 PM. Lucas was recorded in a meeting during this period, while Noah was making the delivery. The register connects the key to a person, but compare it with the other records before drawing a conclusion.",
+                        hint: "The key record establishes access. Check whether the timing fits the other evidence."
+                    }
+                ],
+
+                deductions: {
+                    "0-1":
+                        "The envelope arrived at 2:20 PM, and a finance account was used to correct the ledger at 2:27 PM. These events occurred close together. The account activity challenges the claim that all finance work had ended before the delivery.",
+
+                    "0-2":
+                        "The cabinet key was issued at 2:18 PM, shortly before the envelope arrived. The delivery and key records suggest that someone had access to the finance area during the period when the envelope appeared.",
+
+                    "1-2":
+                        "The finance account was used at 2:27 PM, and the cabinet was accessed at 2:25 PM using a key issued to Grace. These two records connect financial activity with physical access. Consider whether her explanation accounts for both."
+                },
+
+                hints: [
+                    "Begin with the times. Which events occurred after Grace claimed she had left?",
+                    "The delivery, cabinet access, and ledger correction happened within a short period. Put them in chronological order.",
+                    "The account record alone may not prove who was present. Combine it with the key register and the courier's recollection. Which suspect's timeline is hardest to reconcile with all three?"
+                ],
+
+                solution: "Grace Miller"
+            }
+
+        };
+
+
+        /* =====================================================
+           INITIALIZE CASE
+           ===================================================== */
+
+        const params = new URLSearchParams(window.location.search);
+
+        let caseId = params.get("case") || "CV-001";
+
+        if (!cases[caseId]) {
+            caseId = "CV-001";
+        }
+
+        const currentCase = cases[caseId];
+
+        let selectedSuspect = 0;
+        let discoveredEvidence = [];
+        let askedQuestions = [];
+        let successfulDeductions = [];
+        let hintLevel = 0;
+        let accusationSubmitted = false;
+
+        document.getElementById("caseTag").textContent = "CASE #" + caseId;
+
+        document.getElementById("caseTitle").innerHTML =
+            `<strong>${currentCase.title}</strong>`;
+
+        document.getElementById("caseDescription").textContent =
+            currentCase.description;
+
+
+        /* =====================================================
+           RENDER SUSPECTS
+           ===================================================== */
+
+        function renderSuspects() {
+
+            const buttons = document.getElementById("suspectButtons");
+            const profiles = document.getElementById("suspectProfiles");
+            const accused = document.getElementById("accused");
+
+            buttons.innerHTML = "";
+            profiles.innerHTML = "";
+
+            accused.innerHTML =
+                '<option value="">Select a suspect</option>';
+
+            currentCase.suspects.forEach((suspect, index) => {
+
+                const button = document.createElement("button");
+
+                button.className =
+                    "suspect-button" + (index === 0 ? " active" : "");
+
+                button.innerHTML = `
+                    <div class="suspect-avatar">👤</div>
+                    <strong>${suspect.name.split(" ")[0]}</strong>
+                    <small>${suspect.role}</small>
+                `;
+
+                button.onclick = () => selectSuspect(index);
+
+                buttons.appendChild(button);
+
+
+                const profile = document.createElement("div");
+
+                profile.className = "suspect-profile";
+
+                profile.innerHTML = `
+                    <strong>${suspect.name}</strong>
+                    <div class="muted">${suspect.role}</div>
+                    <div class="mt-2">Motive: ${suspect.motive}</div>
+                    <div class="muted mt-1">Alibi: ${suspect.alibi}</div>
+                `;
+
+                profiles.appendChild(profile);
+
+
+                const option = document.createElement("option");
+
+                option.value = suspect.id;
+                option.textContent = suspect.name;
+
+                accused.appendChild(option);
+
+            });
+
+        }
+
+
+        function selectSuspect(index) {
+
+            selectedSuspect = index;
+
+            document.querySelectorAll(".suspect-button").forEach((button, i) => {
+
+                button.classList.toggle("active", i === index);
+
+            });
+
+            const suspect = currentCase.suspects[index];
+
+            document.getElementById("dialogue").innerHTML = `
+                <div class="muted">
+                    You are now questioning <strong>${suspect.name}</strong>.
+                    Choose a question above.
+                </div>
+            `;
+
+        }
+
+
+        /* =====================================================
+           QUESTIONING
+           ===================================================== */
+
+        function askQuestion() {
+
+            const suspect = currentCase.suspects[selectedSuspect];
+
+            const question =
+                document.getElementById("questionSelect").value;
+
+            const questionText =
+                document.getElementById("questionSelect")
+                .selectedOptions[0].textContent;
+
+            const key = suspect.id + "-" + question;
+
+            if (!askedQuestions.includes(key)) {
+                askedQuestions.push(key);
+            }
+
+            document.getElementById("dialogue").innerHTML = `
+                <div class="muted mb-2">
+                    You asked: "${questionText}"
+                </div>
+
+                <div class="dialogue-name">
+                    ${suspect.name}
+                </div>
+
+                "${suspect.answers[question]}"
+            `;
+
+            updateProgress();
+
+        }
+
+
+        /* =====================================================
+           EVIDENCE INSPECTION
+           ===================================================== */
+
+        function inspectEvidence(index) {
+
+            const evidence = currentCase.evidence[index];
+
+            if (!discoveredEvidence.includes(index)) {
+                discoveredEvidence.push(index);
+            }
+
+            document.getElementById("object" + index)
+                .classList.add("found");
+
+            document.getElementById("object" + index)
+                .textContent = "✓";
+
+            document.getElementById("dialogue").innerHTML = `
+                <div class="dialogue-name">
+                    Evidence discovered: ${evidence.name}
+                </div>
+
+                ${evidence.detail}
+            `;
+
+            renderEvidence();
+            renderClueOptions();
+            updateProgress();
+
+        }
+
+
+        function renderEvidence() {
+
+            const list = document.getElementById("evidenceList");
+
+            list.innerHTML = "";
+
+            discoveredEvidence.forEach(index => {
+
+                const evidence = currentCase.evidence[index];
+
+                const card = document.createElement("div");
+
+                card.className = "evidence-card";
+
+                card.innerHTML = `
+                    <strong>${evidence.icon} ${evidence.name}</strong>
+
+                    <small>${evidence.description}</small>
+
+                    <div class="collected">
+                        ✓ Evidence collected
+                    </div>
+
+                    <a href="clue.html?case=${caseId}&evidence=${index}"
+                       class="btn btn-sm btn-outline-light mt-2">
+
+                        <i class="bi bi-search"></i>
+                        Analyze This Clue
+
+                    </a>
+                `;
+
+                card.onclick = () => {
+
+                    document.getElementById("dialogue").innerHTML = `
+                        <div class="dialogue-name">
+                            ${evidence.name}
+                        </div>
+
+                        ${evidence.detail}
+                    `;
+
+                };
+
+                list.appendChild(card);
+
+            });
+
+
+            if (discoveredEvidence.length === 0) {
+
+                list.innerHTML = `
+                    <div class="evidence-card">
+
+                        <strong>Nothing discovered yet</strong>
+
+                        <small>
+                            Inspect the marked objects above.
+                        </small>
+
+                    </div>
+                `;
+
+            }
+
+            document.getElementById("evidenceCount").textContent =
+                discoveredEvidence.length + " / 3 discovered";
+
+        }
+
+
+        function showAllEvidence() {
+
+            if (discoveredEvidence.length === 0) {
+
+                alert("Inspect the crime scene to discover evidence first.");
+
+                return;
+
+            }
+
+            let text = "Discovered Evidence:\n\n";
+
+            discoveredEvidence.forEach(index => {
+
+                text += currentCase.evidence[index].name + "\n";
+
+                text += currentCase.evidence[index].detail + "\n\n";
+
+            });
+
+            alert(text);
+
+        }
+
+
+        /* =====================================================
+           CONNECT CLUES
+           ===================================================== */
+
+        function renderClueOptions() {
+
+            const first = document.getElementById("clueOne");
+            const second = document.getElementById("clueTwo");
+
+            first.innerHTML =
+                '<option value="">Select first clue</option>';
+
+            second.innerHTML =
+                '<option value="">Select second clue</option>';
+
+            discoveredEvidence.forEach(index => {
+
+                const evidence = currentCase.evidence[index];
+
+                const option1 = document.createElement("option");
+
+                option1.value = index;
+                option1.textContent = evidence.name;
+
+                const option2 = option1.cloneNode(true);
+
+                first.appendChild(option1);
+                second.appendChild(option2);
+
+            });
+
+        }
+
+
+        function connectClues() {
+
+            const first = document.getElementById("clueOne").value;
+
+            const second = document.getElementById("clueTwo").value;
+
+            const result = document.getElementById("deductionResult");
+
+
+            if (first === "" || second === "") {
+
+                alert("Select two clues first.");
+
+                return;
+
+            }
+
+
+            if (first === second) {
+
+                alert("Choose two different clues.");
+
+                return;
+
+            }
+
+
+            const a = Math.min(Number(first), Number(second));
+
+            const b = Math.max(Number(first), Number(second));
+
+            const key = a + "-" + b;
+
+            const deduction = currentCase.deductions[key];
+
+
+            if (!deduction) {
+
+                result.className = "deduction-result show";
+
+                result.innerHTML = `
+                    <strong>🔍 No strong connection yet</strong>
+
+                    <p class="mb-0 mt-2">
+                        These details may be important separately.
+                        Try another combination or gather more evidence.
+                    </p>
+                `;
+
+                return;
+
+            }
+
+
+            if (!successfulDeductions.includes(key)) {
+
+                successfulDeductions.push(key);
+
+            }
+
+
+            result.className = "deduction-result show";
+
+            result.innerHTML = `
+                <strong style="color:#FDE68A;">
+                    💡 Deduction unlocked
+                </strong>
+
+                <p class="mb-0 mt-2">
+                    ${deduction}
+                </p>
+            `;
+
+            updateProgress();
+
+        }
+
+
+        /* =====================================================
+           HINT SYSTEM
+           ===================================================== */
+
+        function getHint() {
+
+            const box = document.getElementById("hintBox");
+
+            if (hintLevel >= currentCase.hints.length) {
+
+                box.innerHTML =
+                    "You have received all available hints. Review your evidence and suspect statements.";
+
+                box.classList.add("show");
+
+                return;
+
+            }
+
+            box.innerHTML = `
+                <strong>Hint ${hintLevel + 1}:</strong>
+                ${currentCase.hints[hintLevel]}
+            `;
+
+            box.classList.add("show");
+
+            hintLevel++;
+
+        }
+
+
+        /* =====================================================
+           NOTEBOOK
+           ===================================================== */
+
+        function saveNotes() {
+
+            const notes = document.getElementById("notes").value;
+
+            localStorage.setItem("casevault-notes-" + caseId, notes);
+
+            document.getElementById("notesStatus").textContent =
+                "Saved ✓";
+
+            setTimeout(() => {
+
+                document.getElementById("notesStatus").textContent = "";
+
+            }, 2000);
+
+        }
+
+
+        function loadNotes() {
+
+            const notes =
+                localStorage.getItem("casevault-notes-" + caseId);
+
+            if (notes) {
+
+                document.getElementById("notes").value = notes;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           FINAL ACCUSATION
+           ===================================================== */
+
+        function submitAccusation() {
+
+            const accused = document.getElementById("accused").value;
+
+            const reasoning =
+                document.getElementById("reasoning").value.trim();
+
+            const feedback =
+                document.getElementById("accusationFeedback");
+
+
+            if (!accused) {
+
+                alert("Please select a suspect.");
+
+                return;
+
+            }
+
+
+            if (reasoning.length < 10) {
+
+                alert("Please explain your reasoning in at least a few words.");
+
+                return;
+
+            }
+
+
+            if (accusationSubmitted) {
+
+                alert("You have already submitted your final accusation.");
+
+                return;
+
+            }
+
+
+            accusationSubmitted = true;
+
+
+            const correctSuspect = currentCase.suspects.find(
+                suspect => suspect.id === currentCase.culprit
+            );
+
+
+            if (accused === currentCase.culprit) {
+
+                feedback.className = "feedback show correct";
+
+                feedback.innerHTML = `
+                    <h5>✓ Case Solved!</h5>
+
+                    <p>
+                        Your accusation was correct. The guilty suspect was
+                        <strong>${correctSuspect.name}</strong>.
+                    </p>
+
+                    <hr>
+
+                    <strong>🧠 Case Explanation</strong>
+
+                    <p class="mt-2">
+                        ${currentCase.solutionDetails}
+                    </p>
+
+                    <button class="btn btn-success btn-sm mt-2"
+                            onclick="restartCase()">
+
+                        Return to Cases
+
+                    </button>
+                `;
+
+                localStorage.setItem(
+                    "casevault-solved-" + caseId,
+                    "true"
+                );
+
+            } else {
+
+                feedback.className = "feedback show wrong";
+
+                feedback.innerHTML = `
+                    <h5>✕ Incorrect Accusation</h5>
+
+                    <p>
+                        Your theory does not fully match the evidence.
+                        Some details may contradict your conclusion.
+                    </p>
+
+                    <p>
+                        Review the evidence and suspect statements before trying again.
+                    </p>
+
+                    <button class="btn btn-outline-light btn-sm"
+                            onclick="retryAccusation()">
+
+                        Review and Try Again
+
+                    </button>
+                `;
+
+                accusationSubmitted = false;
+
+            }
+
+
+            updateProgress();
+
+            feedback.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+
+        function retryAccusation() {
+
+            document.getElementById("accusationFeedback")
+                .classList.remove("show");
+
+            document.getElementById("accused").value = "";
+
+            document.getElementById("reasoning").value = "";
+
+        }
+
+
+        function restartCase() {
+
+            window.location.href = "home.html#cases";
+
+        }
+
+
+        /* =====================================================
+           PROGRESS
+           ===================================================== */
+
+        function updateProgress() {
+
+            const evidenceComplete =
+                discoveredEvidence.length === 3;
+
+            const questioningComplete =
+                askedQuestions.length >= 3;
+
+            const deductionComplete =
+                successfulDeductions.length >= 1;
+
+            const accusationComplete =
+                localStorage.getItem("casevault-solved-" + caseId) === "true";
+
+
+            const completed = [
+
+                evidenceComplete,
+
+                questioningComplete,
+
+                deductionComplete,
+
+                accusationComplete
+
+            ].filter(Boolean).length;
+
+
+            const percent = completed * 25;
+
+
+            document.getElementById("progressBar").style.width =
+                percent + "%";
+
+            document.getElementById("progressText").textContent =
+                percent + "%";
+
+            document.getElementById("progressDetails").textContent =
+                completed + " of 4 tasks completed";
+
+        }
+
+
+        /* =====================================================
+           START
+           ===================================================== */
+
+        renderSuspects();
+
+        renderEvidence();
+
+        renderClueOptions();
+
+        loadNotes();
+
+        updateProgress();
+
+    </script>
+
+</body>
+
+</html>
